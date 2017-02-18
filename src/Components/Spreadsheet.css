@@ -1,0 +1,67 @@
+.GridContainer {
+  height: 300px;
+  position: relative;
+  border: 1px solid #dadada;
+  overflow: hidden;
+}
+
+.TopLeftCell {
+  height: 40px;
+  width: 50px;
+  background-color: #f3f3f3;
+  border-bottom: 4px solid #bcbcbc;
+  border-right: 4px solid #bcbcbc;
+}
+
+.MainGrid {
+  position: absolute !important;
+  left: 50px;
+  top: 40px;
+}
+
+.MainGridCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.25rem;
+  outline: 0;
+  border: none;
+  border-right: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.MainGridCellFocused {
+  box-shadow: 0 0 0 2px #4285FA inset;
+}
+
+.LeftGrid {
+  position: absolute !important;
+  left: 0;
+  top: 40px;
+  overflow: hidden !important;
+}
+
+.TopGrid {
+  position: absolute !important;
+  left: 50px;
+  top: 0;
+  height: 40px;
+  overflow: hidden !important;
+}
+
+.FixedGridCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.FixedGridCellFocused {
+  background-color: #dddddd;
+}

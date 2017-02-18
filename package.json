@@ -1,0 +1,38 @@
+{
+  "name": "forward-js",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "react-addons-shallow-compare": "^15.3.2",
+    "react-scripts": "0.6.1"
+  },
+  "homepage": "https://bvaughn.github.io/forward-js/",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "codemirror": "^5.19.0",
+    "immutable": "^3.8.1",
+    "lodash.times": "^4.3.2",
+    "numeral": "^1.5.3",
+    "performance-now": "^0.2.0",
+    "raw-loader": "^0.5.1",
+    "react": "^15.3.2",
+    "react-addons-shallow-compare": "^15.3.2",
+    "react-codemirror": "^0.2.6",
+    "react-dom": "^15.3.2",
+    "react-draggable": "^2.2.2",
+    "react-presents": "0.7.3",
+    "react-radio-group": "^3.0.1",
+    "react-router-dom": "4.0.0-beta.6",
+    "react-sortable-hoc": "0.0.9",
+    "react-virtualized": "^8.0.11",
+    "react-virtualized-select": "^2.1.0",
+    "spectacle": "^1.2.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "postbuild": "git checkout -B gh-pages && git add -f build && git commit -am 'Rebuild website' && git filter-branch -f --prune-empty --subdirectory-filter build && git push -f origin gh-pages && git checkout -",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

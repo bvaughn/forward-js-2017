@@ -1,0 +1,15 @@
+.Collection {
+  border: 1px solid #ddd;
+}
+
+.CollectionCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.CollectionCellCircle {
+  border-radius: 100%;
+}

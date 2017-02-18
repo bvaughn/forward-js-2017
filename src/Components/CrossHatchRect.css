@@ -1,0 +1,15 @@
+.CrossHatchRectPattern {
+  stroke: #fff;
+  stroke-width:10;
+}
+
+.CrossHatchRectHidden,
+.CrossHatchRectVisible {
+  transition: all 2.5s ease;
+}
+.CrossHatchRectHidden {
+  opacity: 0;
+}
+.CrossHatchRectVisible {
+  opacity: 0.25;
+}

@@ -1,0 +1,36 @@
+.scuFalse {
+  fill: #aaa;
+}
+
+.scuTrue {
+  fill: #a6e22e;
+}
+
+.scuAnimatedLine,
+.scuFrozenLine {
+  stroke-width: 1px;
+  stroke-dasharray: 2, 4;
+  stroke: #222;
+}
+.scuAnimatedLine {
+  animation: dash 500ms linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 6;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.scuArrow {
+  fill: #222;
+}
+
+.scuText {
+  font-family: monospace;
+  font-size: 12px;
+}

@@ -1,0 +1,145 @@
+.HowWorksGroup {
+  transform: skewX(0deg);
+}
+
+.HowWorksGroupSkewed {
+  transition: all 1s ease;
+  transform: skewX(15deg);
+}
+
+.HowWorksOuterGroup {
+  transition: transform 1s ease;
+  transform: translate(-75px, -68px);
+}
+
+.HowWorksOuterRect {
+  rx: 8px;
+  ry: 8px;
+  stroke-width: 4px;
+  fill: transparent;
+  stroke: #222;
+  transition: transform 1s ease;
+}
+
+.HowWorksOuterRectShifted {
+  transform: translate(0, -30px);
+}
+
+.HowWorksHidden {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.HowWorksVisible {
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.HowWorksInnerLineAnimated {
+  animation: scrolling 1s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrolling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+.HowWorksInnerRect,
+.HowWorksInnerLine {
+  fill: transparent;
+  stroke-width: 1px;
+  stroke-dasharray: 2, 4;
+  stroke: #222;
+}
+
+.HowWorksRowGroup {
+  font-size: 10px;
+}
+
+.HowWorksRowRendered,
+.HowWorksRowNotRendered,
+.HowWorksRowEstimated {
+  stroke-width: 2px;
+  stroke: #fff;
+}
+
+.HowWorksRowEstimated {
+  fill: #ddd;
+}
+
+.HowWorksRowRendered {
+  fill: #a6e22e;
+}
+
+.HowWorksRowNotRendered {
+  fill: #aaa;
+}
+
+.HowWorksViewportLine {
+  stroke-width: 1px;
+  stroke-dasharray: 2, 4;
+  stroke: #222;
+  transition-delay: 1s;
+}
+
+.HowWorksScrollTrack {
+  fill: rgba(0,0,0,.1);
+}
+
+.HowWorksScrollThumb {
+  fill: rgba(0,0,0,.5);
+}
+
+.HowWorksScrollingLoop {
+  animation: scrollingLoop 2.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollingLoop {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+
+.HowWorksScrollingThumbLoop {
+  animation: scrollingThumbLoop 2.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollingThumbLoop {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(15px); }
+  100% { transform: translateY(0); }
+}
+
+.HowWorksTopConditionalScrollingFill {
+  animation: topConditionalScrollingFill 2.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes topConditionalScrollingFill {
+  0%   { fill: #a6e22e; }
+  14%   { fill: #a6e22e; }
+  15%  { fill: #aaa; }
+  84%  { fill: #aaa; }
+  85%  { fill: #a6e22e; }
+}
+
+.HowWorksBottomConditionalScrollingFill {
+  animation: bottomConditionalScrollingFill 2.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bottomConditionalScrollingFill {
+  0%   { fill: #aaa; }
+  14%   { fill: #aaa; }
+  15%   { fill: #a6e22e; }
+  84%   { fill: #a6e22e; }
+  85%  { fill: #aaa; }
+}
+

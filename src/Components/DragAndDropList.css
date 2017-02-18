@@ -1,0 +1,16 @@
+.SortableListRow {
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.SortableListRow:hover {
+  background-color: #e9e9e9;
+}
+
+.SortableListRowActive {
+  font-size: 13px;
+  background-color: #a6e22e;
+  overflow: hidden;
+}

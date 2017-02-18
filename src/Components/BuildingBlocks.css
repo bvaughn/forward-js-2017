@@ -1,0 +1,33 @@
+.svgOuterBox {
+  fill: transparent;
+  stroke: #222;
+  stroke-width: 4px;
+  rx: 8px;
+  ry: 8px;
+}
+
+.svgCollectionBoxNotRendered,
+.svgGridBoxNotRendered,
+.svgTableColumnNotRendered,
+.svgListRowNotRendered {
+  fill: #aaa;
+  stroke: transparent;
+}
+
+.svgCollectionBox,
+.svgGridBox,
+.svgListRow,
+.svgTableColumn {
+  fill: #a6e22e;
+  stroke: transparent;
+}
+
+.svgTableHeader {
+  fill: transparent;
+  stroke: #222;
+}
+
+.svgNotRenderedDimmer {
+  fill: #fff;
+  opacity: 0.65;
+}
