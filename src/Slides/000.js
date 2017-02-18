@@ -24,7 +24,7 @@ const slide = () => (
   <TitleSlide>
     <h1>{slide.title}</h1>
     <h2>
-      <a href='https://www.github.com/bvaughn/connect-tech-2016'>github.com/bvaughn/connect-tech-2016</a>
+      <a href='https://www.github.com/bvaughn/forward-js-2017'>github.com/bvaughn/forward-js-2017</a>
     </h2>
     <Container>
       <Icon className='fa fa-github' /> <a href='https://www.github.com/bvaughn'>@bvaughn</a>
