@@ -4648,9 +4648,9 @@ react-input-autosize@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-1.1.0.tgz#3fe1ac832387d8abab85f6051ceab1c9e5570853"
 
-react-presents@0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/react-presents/-/react-presents-0.7.3.tgz#8477d4d8490abf0b54cede575dc50aa9f93922af"
+react-presents@0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/react-presents/-/react-presents-0.7.4.tgz#23e79101874468ad1a007e566227c74eefdb5f3d"
   dependencies:
     babel-runtime "^6.11.6"
     codemirror "^5.18.0"
