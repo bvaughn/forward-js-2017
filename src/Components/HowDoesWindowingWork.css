@@ -73,7 +73,7 @@
 }
 
 .HowWorksRowRendered {
-  fill: #a6e22e;
+  fill: #a2d4da;
 }
 
 .HowWorksRowNotRendered {
@@ -123,11 +123,11 @@
 }
 
 @keyframes topConditionalScrollingFill {
-  0%   { fill: #a6e22e; }
-  14%   { fill: #a6e22e; }
+  0%   { fill: #a2d4da; }
+  14%   { fill: #a2d4da; }
   15%  { fill: #aaa; }
   84%  { fill: #aaa; }
-  85%  { fill: #a6e22e; }
+  85%  { fill: #a2d4da; }
 }
 
 .HowWorksBottomConditionalScrollingFill {
@@ -138,8 +138,8 @@
 @keyframes bottomConditionalScrollingFill {
   0%   { fill: #aaa; }
   14%   { fill: #aaa; }
-  15%   { fill: #a6e22e; }
-  84%   { fill: #a6e22e; }
+  15%   { fill: #a2d4da; }
+  84%   { fill: #a2d4da; }
   85%  { fill: #aaa; }
 }
 

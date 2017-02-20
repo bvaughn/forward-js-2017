@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 
 const sourcePlain = require('raw!../../examples/perf-comparison-plain.js');
 const sourceNonVirtualized = require('raw!../../examples/perf-comparison-non-virtualized.js');

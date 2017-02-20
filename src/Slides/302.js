@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 import DeferMeasurements from '../Components/DeferMeasurements';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import DemoCollection from '../Components/DemoCollection';
 

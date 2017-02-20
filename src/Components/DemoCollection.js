@@ -16,6 +16,13 @@ export default class MySlide extends Component {
   }
 
   componentWillUpdate (nextProps, nextState) {
+    // HACK Weird React bug where this.state === null
+    // Seems to happen when component is about to unmount.
+    // Going to just hack around it for now...
+    if (!this.state) {
+      return;
+    }
+
     const { cellValues, focusedColumnIndex, focusedRowIndex } = this.state;
 
     if (

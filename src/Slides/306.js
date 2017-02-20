@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import ScaledList from '../Components/ScaledList';
 import image from '../../public/browser-limits-cutoff.png';

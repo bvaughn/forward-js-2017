@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 
 const HeartIcon = styled.i`
@@ -11,6 +12,9 @@ const FacebookIcon = styled.i`
 const GoogleIcon = styled.i`
   color: #F44336 !important;
 `;
+const TreasureDataIcon = styled.i`
+  color: #ee2f4d !important;
+`;
 
 const slide = () => (
   <ContentSlide>
@@ -18,7 +22,7 @@ const slide = () => (
     <ul>
       <Step index={1}>
         <li>
-          Software engineer for ~16 years
+          Front-end software engineer
         </li>
       </Step>
       <Step index={2}>
@@ -27,8 +31,8 @@ const slide = () => (
           <ul>
             <li><FacebookIcon className='fa fa-facebook-square' /> Facebook</li>
             <li><GoogleIcon className='fa fa-google' /> Google</li>
+            <li><TreasureDataIcon className='fa fa-diamond' /> Treasure Data</li>
             <li>Rosetta Stone</li>
-            <li>Treasure Data</li>
           </ul>
         </li>
       </Step>
@@ -39,7 +43,7 @@ const slide = () => (
       </Step>
       <Step index={4}>
         <li>
-          Passionate about performance, search, and architecture
+          Passionate about performance, search, and app architecture
         </li>
       </Step>
     </ul>

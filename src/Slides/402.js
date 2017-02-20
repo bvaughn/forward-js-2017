@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import Note from '../Components/Note';
 import DragAndDropList from '../Components/DragAndDropList';

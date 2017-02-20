@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import chatImage from '../../public/non-uniform-heights-chat.png';
 import dropDownImage from '../../public/non-uniform-heights-drop-down.png';
 

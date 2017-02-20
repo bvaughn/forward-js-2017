@@ -20,7 +20,7 @@
     "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.2",
     "react-draggable": "^2.2.2",
-    "react-presents": "0.7.4",
+    "react-presents": "0.7.6",
     "react-radio-group": "^3.0.1",
     "react-router-dom": "4.0.0-beta.6",
     "react-sortable-hoc": "0.0.9",

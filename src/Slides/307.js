@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import React, { Component, PropTypes } from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { List } from 'react-virtualized';
 import styled from 'styled-components';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';

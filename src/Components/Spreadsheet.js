@@ -1,9 +1,9 @@
 import classnames from 'classnames';
 import React, { Component } from 'react';
-import { AutoSizer, Grid, ScrollSync } from 'react-virtualized';
+import { AutoSizer, MultiGrid } from 'react-virtualized';
 import './Spreadsheet.css';
 
-const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const LETTERS = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 export default class MySlide extends Component {
   constructor (props, context) {
@@ -15,9 +15,9 @@ export default class MySlide extends Component {
       focusedRowIndex: null
     };
 
-    this._cellRendererLeft = this._cellRendererLeft.bind(this);
-    this._cellRendererMain = this._cellRendererMain.bind(this);
-    this._cellRendererTop = this._cellRendererTop.bind(this);
+    this._cellRenderer = this._cellRenderer.bind(this);
+    this._columnWidth = this._columnWidth.bind(this);
+    this._setRef = this._setRef.bind(this);
   }
 
   componentWillUpdate (nextProps, nextState) {
@@ -27,11 +27,9 @@ export default class MySlide extends Component {
       focusedColumnIndex !== nextState.focusedColumnIndex ||
       focusedRowIndex !== nextState.focusedRowIndex
     ) {
-      this._leftGrid.forceUpdate();
-      this._mainGrid.forceUpdate();
-      this._topGrid.forceUpdate();
+      this._multiGrid.forceUpdate();
     } else if (cellValues !== nextState.cellValues) {
-      this._mainGrid.forceUpdate();
+      this._multiGrid.forceUpdate();
     }
   }
 
@@ -39,59 +37,49 @@ export default class MySlide extends Component {
     const { focusedColumnIndex, focusedRowIndex } = this.state;
 
     return (
-      <ScrollSync>
-        {({ onScroll, scrollLeft, scrollTop }) => (
-          <AutoSizer disableHeight>
-            {({ width }) => (
-              <div
-                className='GridContainer'
-                style={{ width }}
-              >
-                <div className='TopLeftCell'></div>
-                <Grid
-                  cellRenderer={this._cellRendererLeft}
-                  className='LeftGrid'
-                  columnCount={1}
-                  columnWidth={50}
-                  height={275}
-                  ref={(ref) => this._leftGrid = ref}
-                  rowCount={100}
-                  rowHeight={40}
-                  scrollTop={scrollTop}
-                  width={50}
-                />
-                <Grid
-                  cellRenderer={this._cellRendererTop}
-                  className='TopGrid'
-                  columnCount={LETTERS.length}
-                  columnWidth={100}
-                  height={40}
-                  ref={(ref) => this._topGrid = ref}
-                  rowCount={1}
-                  rowHeight={40}
-                  scrollLeft={scrollLeft}
-                  width={width - 50}
-                />
-                <Grid
-                  cellRenderer={this._cellRendererMain}
-                  className='MainGrid'
-                  columnWidth={100}
-                  columnCount={LETTERS.length}
-                  height={275}
-                  onScroll={onScroll}
-                  ref={(ref) => this._mainGrid = ref}
-                  rowHeight={40}
-                  rowCount={100}
-                  scrollToColumn={focusedColumnIndex}
-                  scrollToRow={focusedRowIndex}
-                  width={width - 50}
-                />
-              </div>
-            )}
-          </AutoSizer>
+      <AutoSizer disableHeight>
+        {({ width }) => (
+          <MultiGrid
+            cellRenderer={this._cellRenderer}
+            columnWidth={this._columnWidth}
+            columnCount={LETTERS.length}
+            fixedColumnCount={1}
+            fixedRowCount={1}
+            height={300}
+            ref={this._setRef}
+            rowHeight={40}
+            rowCount={100}
+            style={{
+              border: '1px solid #dadada'
+            }}
+            styleBottomLeftGrid={{
+              backgroundColor: '#ffffff'
+            }}
+            styleTopLeftGrid={{
+              backgroundColor: '#f3f3f3',
+              borderBottom: '4px solid #bcbcbc',
+              borderRight: '4px solid #bcbcbc'
+            }}
+            styleTopRightGrid={{
+              backgroundColor: '#f3f3f3'
+            }}
+            width={width}
+          />
         )}
-      </ScrollSync>
+      </AutoSizer>
     );
+  }
+
+  _cellRenderer ({ columnIndex, key, rowIndex, style }) {
+    if (columnIndex === 0 && rowIndex === 0) {
+      return <div key={key} style={style} />
+    } else if (columnIndex === 0) {
+      return this._cellRendererLeft({ columnIndex, key, rowIndex, style })
+    } else if (rowIndex === 0) {
+      return this._cellRendererTop({ columnIndex, key, rowIndex, style })
+    } else {
+      return this._cellRendererMain({ columnIndex, key, rowIndex, style })
+    }
   }
 
   _cellRendererLeft ({ columnIndex, key, rowIndex, style }) {
@@ -159,5 +147,13 @@ export default class MySlide extends Component {
         {LETTERS[columnIndex]}
       </div>
     );
+  }
+
+  _columnWidth ({ index }) {
+    return index === 0 ? 40 : 100;
+  }
+
+  _setRef (ref) {
+    this._multiGrid = ref;
   }
 }

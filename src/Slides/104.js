@@ -1,6 +1,6 @@
 import now from 'performance-now';
 import React, { Component, PropTypes } from 'react';
-import { ContentSlide } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import Note from '../Components/Note';
 import { List, ListRow, ListWithBorderRadius, RowName, RowNumber, RowStack, RowSummary } from '../Components/StyledListElements';
 

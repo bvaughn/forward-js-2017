@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleSlide } from 'react-presents';
+import TitleSlide from '../Presentation/TitleSlide';
 
 const slide = () => (
   <TitleSlide>

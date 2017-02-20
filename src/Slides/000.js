@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleSlide } from 'react-presents';
+import TitleSlide from '../Presentation/TitleSlide';
 import styled from 'styled-components';
 
 const Container = styled.p`
@@ -17,7 +17,7 @@ const Icon = styled.i`
   font-size: 2rem !important;
   line-height: 2rem !important;
   margin: 0 0.5rem;
-  color: #777872;
+  color: #ccc;
 `;
 
 const slide = () => (

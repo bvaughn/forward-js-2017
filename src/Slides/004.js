@@ -1,10 +1,11 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 
 const SectionCheck = styled.i`
   margin-left: 0.5rem;
-  color: #a6e22e !important;
+  color: #C0E0D0 !important;
 `
 
 const slide = () => (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { Radio, RadioGroup } from 'react-radio-group';
 import ExampleList from '../Components/ExampleList';
 

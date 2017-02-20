@@ -1,8 +1,9 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import ScuChart from '../Components/ScuChart';
 
-const source = require('raw!../../examples/shallow-compare.js')
+const source = require('raw!../../examples/pure-component.js')
 
 const slide = ({ stepIndex }) => (
   <ContentSlide>
@@ -10,7 +11,7 @@ const slide = ({ stepIndex }) => (
 
     <Step index={1} maxIndex={5}>
       <div>
-        <p>React recursively renders elements when state changes*.</p>
+        <p>React re-renders nested elements when state changes*.</p>
         <ScuChart scu='all' />
 
         <Step index={2}><h2>This is important because:</h2></Step>
@@ -36,7 +37,7 @@ const slide = ({ stepIndex }) => (
     <Step index={10} maxIndex={14}>
       <div>
         <p>
-          <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a> util makes this easy.
+          <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a> makes this easy.
         </p>
         <ul>
           <Step index={11}><li>Compares current vs next <code>props</code> and <code>state</code></li></Step>
@@ -46,7 +47,7 @@ const slide = ({ stepIndex }) => (
           <Code
             dimLines={
               stepIndex === 14
-                ? [[0,0], [2,3], [7,11]]
+                ? [[0,1], [3,7]]
                 : undefined
             }
             value={source}

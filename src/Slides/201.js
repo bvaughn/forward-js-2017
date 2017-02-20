@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import Note from '../Components/Note';
 
 const source = require('raw!../../examples/row-renderer.js');

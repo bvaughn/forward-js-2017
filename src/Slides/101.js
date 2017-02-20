@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 import MarioSvg from '../Components/MarioSvg';
 import booksImage from '../../public/books.jpg';

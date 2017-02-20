@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel } from '../Components/Labels';
 
 const sourceA = require('raw!../../examples/pass-through-props.js');
@@ -12,7 +13,7 @@ const slide = ({ stepIndex }) => (
     <Step index={0} maxIndex={6}>
       <div>
         <ul>
-          <Step index={1}><li>All components use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a></li></Step>
+          <Step index={1}><li>All components extend <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a></li></Step>
           <Step index={2}><li>No components have access to the underlying array/collection</li></Step>
         </ul>
         <Step index={3}>

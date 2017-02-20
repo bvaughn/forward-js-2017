@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { CollectionSvg, GridSvg, ListSvg, TableSvg } from '../Components/BuildingBlocks';
 
  const slide = () => (

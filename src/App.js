@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { DropDownNav, Presentation, Slide } from 'react-presents';
 import generateRandomList from './Utils/generateRandomList';
-import './App.css';
+import ForwardTheme from './ForwardTheme';
 
 // Load all slides in the Slides folder
 const slides = require.context('./Slides/', false, /\.js$/)
@@ -33,7 +33,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Presentation>
+      <Presentation disableTheme>
         {slides.map((Component, index) => (
           <Slide
             component={Component}
@@ -45,6 +45,7 @@ export default class App extends Component {
             options={options}
           />
         )}
+        <ForwardTheme />
       </Presentation>
     );
   }

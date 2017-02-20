@@ -1,7 +1,7 @@
 import now from 'performance-now';
 import numeral from 'numeral';
 import React, { Component, PropTypes } from 'react';
-import { ContentSlide } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import ExampleList from '../Components/ExampleList';
 import Note from '../Components/Note';
 

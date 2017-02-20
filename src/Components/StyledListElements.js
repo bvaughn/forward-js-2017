@@ -76,7 +76,7 @@ export const RowSummary = styled.div`
 export const RowStar = styled.div`
   flex: 0 0 auto;
   font-size: 1rem !important;
-  color: #f92672 !important;
+  color: #FF502F !important;
 `;
 
 export const ListScrolling = styled.div`

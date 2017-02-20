@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import Note from '../Components/Note';
 import Spreadsheet from '../Components/Spreadsheet';
 
-const sourceGrids = require('raw!../../examples/scroll-sync-grid.js');
-const sourceRenderer = require('raw!../../examples/scroll-sync-renderers.js');
+const sourceGrids = require('raw!../../examples/multi-grid.js');
+const sourceRenderer = require('raw!../../examples/multi-grid-renderers.js');
 
 const GRID_DIM_LINES = [
   undefined,
-  [[0,1], [4,22], [24,26], [29,30]],
-  [[0,1], [4,9], [11,16], [18,26], [29,30]]
+  [[0,5], [8,14]]
 ];
 
 const RENDERER_DIM_LINES = [
@@ -32,7 +32,7 @@ const slide = ({ stepIndex }, { list }) => {
 
           <Step index={1}>
             <p>
-              <AnswerLabel>Answer</AnswerLabel>: Yes! Use <code>ScrollSync</code>.
+              <AnswerLabel>Answer</AnswerLabel>: Yes! Use <code>MultiGrid</code>.
             </p>
           </Step>
 
@@ -46,16 +46,16 @@ const slide = ({ stepIndex }, { list }) => {
         </div>
       </Step>
 
-      <Step index={3} maxIndex={5}>
+      <Step index={3} maxIndex={4}>
         <Code
           dimLines={GRID_DIM_LINES[stepIndex - 3]}
           value={sourceGrids}
         />
       </Step>
 
-      <Step index={6} maxIndex={8}>
+      <Step index={5} maxIndex={7}>
         <Code
-          dimLines={RENDERER_DIM_LINES[stepIndex - 6]}
+          dimLines={RENDERER_DIM_LINES[stepIndex - 5]}
           value={sourceRenderer}
         />
       </Step>

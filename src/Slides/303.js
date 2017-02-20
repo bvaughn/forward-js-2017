@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import image from '../../public/cache-all-the-things.png';
@@ -52,6 +53,6 @@ const slide = () => (
   </ContentSlide>
 );
 
-slide.title = 'Does it have to measure everything up front?';
+slide.title = 'Do we have to measure things more than once?';
 
 export default slide;

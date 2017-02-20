@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const DefaultNote = styled.div`
   margin: 0 0 0.75rem;
-  background: #bd93f9;
+  background: #4A90E2;
   color: #fff;
   display: inline-block;
   padding: 0.5rem;
@@ -16,7 +16,7 @@ const DefaultNote = styled.div`
 `
 
 const WarningNote = styled(DefaultNote)`
-  background: #ff79c6;
+  background: #f2905c;
 `
 
 export default function Note ({

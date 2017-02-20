@@ -1,5 +1,6 @@
 import React from 'react';
-import { ContentSlide, Step } from 'react-presents';
+import { Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 import calendarGif from '../../public/how-is-it-used-calendar.gif';
 import dropDownGif from '../../public/how-is-it-used-dropdown.gif';

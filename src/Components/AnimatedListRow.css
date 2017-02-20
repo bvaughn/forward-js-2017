@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0 0.5rem;
-  background-color: #a6e22e;
+  background-color: #a2d4da;
   width: 100%;
   height: 26px;
   margin: 2px 0;
@@ -10,7 +10,7 @@
 }
 
 .AnimatedList--Overscan {
-  background-color: #a6e22e;
+  background-color: #C0E0D0;
 }
 
 .AnimatedList--Invisible {

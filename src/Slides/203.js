@@ -1,5 +1,6 @@
 import React from 'react';
-import { Code, ContentSlide, Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
+import ContentSlide from '../Presentation/ContentSlide';
 
 const sourceA = require('raw!../../examples/function-children-example-1.js');
 const sourceB = require('raw!../../examples/function-children-example-2.js');
