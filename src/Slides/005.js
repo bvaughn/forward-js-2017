@@ -18,7 +18,7 @@ const slide = ({ stepIndex }) => (
         <Step index={2}><h2>This is important because:</h2></Step>
         <ul>
           <Step index={3}><li>Slow for big applications</li></Step>
-          <Step index={4}><li>Virtual DOM is faster than DOM, but still not free</li></Step>
+          <Step index={4}><li>Rendering is faster than DOM manipulation, but still not free</li></Step>
         </ul>
         <Step index={5}><h2>So how do we handle this?</h2></Step>
       </div>
@@ -67,15 +67,25 @@ const slide = ({ stepIndex }) => (
       <div>
         <h2>Is that all?</h2>
         <ul>
-          <Step index={17}><li><a href='https://facebook.github.io/immutable-js/'>Immutable</a> data speeds up comparisons</li></Step>
-          <Step index={18}>
+          <Step index={17}>
             <li>
-              Choose <code>props</code> carefully <Step index={22}><span>(also helps with testing!)</span></Step>
+              Choose <code>props</code> carefully (eg <code>UserBadge</code>)
 
               <ul>
-                <Step index={19}><li><i className='fa fa-frown-o' /> <code>users</code>, <code>index</code></li></Step>
-                <Step index={20}><li><i className='fa fa-smile-o' /> <code>user</code></li></Step>
-                <Step index={21}><li><i className='fa fa-smile-o' /><i className='fa fa-smile-o' /> <code>name</code>, <code>email</code></li></Step>
+                <Step index={18} exact><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
+                <Step index={19} exact><li>🙂 <code>user</code> (object)</li></Step>
+                <Step index={20}><li>😁 <code>name</code> (string), <code>email</code> (string)</li></Step>
+                <Step index={21}><li>This can also simplify testing!</li></Step>
+              </ul>
+            </li>
+          </Step>
+          <Step index={22}>
+            <li>
+              Consider <a href='https://facebook.github.io/immutable-js/'>Immutable</a> data for props
+
+              <ul>
+                <Step index={23}><li>Slower than native objects but generally not a bottleneck</li></Step>
+                <Step index={24}><li>Faster, simpler change detection</li></Step>
               </ul>
             </li>
           </Step>
