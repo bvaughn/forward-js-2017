@@ -61,8 +61,8 @@ const slide = () => (
 
         <ul>
           <Step index={6}><li>Given a perspective of a user/camera</li></Step>
-          <Step index={7}><li>Which objects are in the direction being viewed</li></Step>
-          <Step index={8}><li>Which ones aren't obscurred by other items (eg walls)</li></Step>
+          <Step index={7}><li>Which objects are in the direction being viewed?</li></Step>
+          <Step index={8}><li>Are any of them obscurred by other items (eg walls)?</li></Step>
         </ul>
 
         <Step index={9}>
@@ -74,15 +74,14 @@ const slide = () => (
       </div>
     </Step>
 
-    <Step index={10} maxIndex={14}>
+    <Step index={10} maxIndex={13}>
       <div>
         <p>Websites and mobile apps do this as well ("windowing")</p>
 
         <ul>
-          <Step index={11}><li>Given a small list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>
+          <Step index={11}><li>Given a small, scrollable list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>
           <Step index={12}><li>And a huge set of items (eg <code>&lt;li&gt;</code>, <code>UITableViewCell</code>)</li></Step>
-          <Step index={13}><li>And a scroll position</li></Step>
-          <Step index={14}><li>Which items are visible?</li></Step>
+          <Step index={13}><li>Which items are visible?</li></Step>
         </ul>
       </div>
     </Step>

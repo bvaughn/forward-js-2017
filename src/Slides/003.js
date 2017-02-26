@@ -21,7 +21,7 @@ const slide = () => (
         <li>
           <div>
             Bad framerate hurts scrolling experience.
-            <Step index={4}><span> (Super important for mobile UX!)</span></Step>
+            <Step index={4}><span> (Important for mobile UX!)</span></Step>
           </div>
         </li>
       </Step>

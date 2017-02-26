@@ -2,8 +2,8 @@ import React from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
 
-const sourceA = require('raw!../../examples/function-children-example-1.js');
-const sourceB = require('raw!../../examples/function-children-example-2.js');
+const sourceA = require('raw!../../examples/function-children-example-2.js');
+const sourceB = require('raw!../../examples/function-children-example-1.js');
 const sourceC = require('raw!../../examples/function-children-example-3.js');
 
 const DIM_LINES = [
@@ -17,7 +17,9 @@ const slide = ({ stepIndex }) => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <p>Very powerful pattern!</p>
+    <Step index={0} maxIndex={3}>
+      <p>Very powerful pattern!</p>
+    </Step>
 
     <Step index={1} maxIndex={3}>
       <ul>
@@ -32,16 +34,28 @@ const slide = ({ stepIndex }) => (
     </Step>
 
     <Step index={4} exact>
-      <Code value={sourceA} />
+      <p>Let's say our app is localized...</p>
     </Step>
 
     <Step index={5} exact>
+      <Code value={sourceA} />
+    </Step>
+
+    <Step index={6} exact>
+      <p>Let's say we have components that require user information to render...</p>
+    </Step>
+
+    <Step index={7} exact>
       <Code value={sourceB} />
     </Step>
 
-    <Step index={6} maxIndex={9}>
+    <Step index={8} exact>
+      <p>Function children allow us to compose these...</p>
+    </Step>
+
+    <Step index={9} maxIndex={12}>
       <Code
-        dimLines={DIM_LINES[stepIndex - 6]}
+        dimLines={DIM_LINES[stepIndex - 9]}
         value={sourceC}
       />
     </Step>

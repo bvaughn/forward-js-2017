@@ -1,6 +1,4 @@
-const cache = new CellMeasurerCache({
-  fixedWidth: true
-});
+const cache = new CellMeasurerCache({ fixedWidth: true });
 
 function rowRenderer ({ index, key, parent, style }) {
   return (
@@ -11,9 +9,7 @@ function rowRenderer ({ index, key, parent, style }) {
       parent={parent}
       rowIndex={index}
     >
-      <div style={style}>
-        {/* Your content here */}
-      </div>
+      <div style={style}>{/* Your content here */}</div>
     </CellMeasurer>
   );
 }

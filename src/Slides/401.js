@@ -64,7 +64,7 @@ const slide = ({ stepIndex }) => (
 
         <Step index={13}>
           <Code
-            dimLines={stepIndex > 13 ? [[4,5], [13,15], [17,23], [26,31]] : []}
+            dimLines={stepIndex > 13 ? [[1,3], [11,11], [13,19], [22,27]] : []}
             value={sourceCellMeasurer}
           />
         </Step>

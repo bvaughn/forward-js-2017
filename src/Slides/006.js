@@ -28,7 +28,7 @@ const slide = ({ stepIndex }) => (
 
     <Step index={8} maxIndex={11}>
       <div>
-        <p><strong className='AnswerLabel'>Answer</strong>: <code>shouldComponentUpdate</code> can help!</p>
+        <p><strong className='AnswerLabel'>Answer</strong>: Use <code>shouldComponentUpdate</code></p>
         <ul>
           <Step index={9}><li>Let React know when it's safe to skip rendering</li></Step>
           <Step index={10}><li>Children are skipped as well</li></Step>
@@ -37,7 +37,7 @@ const slide = ({ stepIndex }) => (
       </div>
     </Step>
 
-    <Step index={12} maxIndex={17}>
+    <Step index={12} maxIndex={16}>
       <div>
         <p>
           <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a> makes this easy.
@@ -47,17 +47,9 @@ const slide = ({ stepIndex }) => (
           <Step index={14}><li>Only re-renders if something has changed</li></Step>
         </ul>
         <Step index={15}>
-          <Code
-            dimLines={
-              stepIndex === 16
-                ? [[0,1], [3,7]]
-                : undefined
-            }
-            value={source}
-          />
+          <Code value={source} />
         </Step>
-        <Step index={16}><span /></Step>
-        <Step index={17}>
+        <Step index={16}>
           <Note>
             For React 15.2 and earlier use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a>.
           </Note>
@@ -65,29 +57,29 @@ const slide = ({ stepIndex }) => (
       </div>
     </Step>
 
-    <Step index={18}>
+    <Step index={17}>
       <div>
         <h2>Is that all?</h2>
         <ul>
-          <Step index={19}>
+          <Step index={18}>
             <li>
               Choose <code>props</code> carefully (eg <code>UserBadge</code>)
 
               <ul>
-                <Step index={20} exact><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
-                <Step index={21} exact><li>🙂 <code>user</code> (object)</li></Step>
-                <Step index={22}><li>😁 <code>name</code> (string), <code>email</code> (string)</li></Step>
-                <Step index={23}><li>This can also simplify testing!</li></Step>
+                <Step index={19} exact><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
+                <Step index={20} exact><li>🙂 <code>user</code> (object)</li></Step>
+                <Step index={21}><li>😁 <code>name</code> (string), <code>email</code> (string)</li></Step>
+                <Step index={22}><li>This can also simplify testing!</li></Step>
               </ul>
             </li>
           </Step>
-          <Step index={24}>
+          <Step index={23}>
             <li>
               Consider <a href='https://facebook.github.io/immutable-js/'>Immutable</a> data for props
 
               <ul>
-                <Step index={25}><li>Slower than native objects but generally not a bottleneck</li></Step>
-                <Step index={26}><li>Faster, simpler change detection</li></Step>
+                <Step index={24}><li>Slower than native objects but generally not a bottleneck</li></Step>
+                <Step index={25}><li>Leads to faster, simpler change detection</li></Step>
               </ul>
             </li>
           </Step>

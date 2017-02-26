@@ -38,7 +38,7 @@ const slide = () => (
 
     <Step index={5}>
       <p>
-        <AnswerLabel>Answer</AnswerLabel>: Yes, but it's tricky.
+        <AnswerLabel>Answer</AnswerLabel>: Yes (but stateful views are tricky)
       </p>
     </Step>
 
