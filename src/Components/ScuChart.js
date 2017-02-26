@@ -32,16 +32,20 @@ const xL2b = 125;
 const xL2c = 175;
 const xL2d = 275;
 
-export default function Chart ({ scu }) {
-  const maybeMarker = scu === 'all'
-    ? 'url(#arrow)'
-    : undefined
-  const maybeClassName = scu === 'all'
+export default function Chart ({ step }) {
+  const allLineClassName = step === 2
     ? 'scuAnimatedLine'
     : 'scuFrozenLine'
-  const maybeScu = scu === 'all'
-    ? true
-    : false
+  const scuLineClassName = step >= 2
+    ? 'scuAnimatedLine'
+    : 'scuFrozenLine'
+
+  const allMarkerClassName = step === 2
+    ? 'url(#arrow)'
+    : undefined
+  const scuMarkerClassName = step >= 2
+    ? 'url(#arrow)'
+    : undefined
 
   return (
     <SvgWrapper
@@ -56,20 +60,20 @@ export default function Chart ({ scu }) {
         </marker>
       </defs>
 
-      <line x1={xRoot} y1={y0} x2={xL1a} y2={y1} markerEnd='url(#arrow)' className='scuAnimatedLine' />
-      <line x1={xRoot} y1={y0} x2={xL1b} y2={y1} markerEnd='url(#arrow)' className='scuAnimatedLine' />
-      <line x1={xL1a}  y1={y1} x2={xL2a} y2={y3} markerEnd={maybeMarker} className={maybeClassName} />
-      <line x1={xL1a}  y1={y1} x2={xL2b} y2={y3} markerEnd={maybeMarker} className={maybeClassName} />
-      <line x1={xL1b}  y1={y1} x2={xL2c} y2={y3} markerEnd='url(#arrow)' className='scuAnimatedLine' />
-      <line x1={xL1b}  y1={y1} x2={xL2d} y2={y3} markerEnd='url(#arrow)' className='scuAnimatedLine' />
+      <line x1={xRoot} y1={y0} x2={xL1a} y2={y1} markerEnd={scuMarkerClassName} className={scuLineClassName} />
+      <line x1={xRoot} y1={y0} x2={xL1b} y2={y1} markerEnd={scuMarkerClassName} className={scuLineClassName} />
+      <line x1={xL1a}  y1={y1} x2={xL2a} y2={y3} markerEnd={allMarkerClassName} className={allLineClassName} />
+      <line x1={xL1a}  y1={y1} x2={xL2b} y2={y3} markerEnd={allMarkerClassName} className={allLineClassName} />
+      <line x1={xL1b}  y1={y1} x2={xL2c} y2={y3} markerEnd={scuMarkerClassName} className={scuLineClassName} />
+      <line x1={xL1b}  y1={y1} x2={xL2d} y2={y3} markerEnd={scuMarkerClassName} className={scuLineClassName} />
 
-      <Circle cx={xRoot} cy={y0} label='div' scu={true} />
-      <Circle cx={xL1a}  cy={y1} label='ul'  scu={maybeScu} />
-      <Circle cx={xL2a}  cy={y3} label='li'  scu={maybeScu} />
-      <Circle cx={xL2b}  cy={y3} label='li'  scu={maybeScu} />
-      <Circle cx={xL1b}  cy={y1} label='div' scu={true} />
-      <Circle cx={xL2c}  cy={y3} label='p'   scu={true} />
-      <Circle cx={xL2d}  cy={y3} label='p'   scu={maybeScu} />
+      <Circle cx={xRoot} cy={y0} label='div' scu={step > 0} />
+      <Circle cx={xL1a}  cy={y1} label='ul'  scu={step > 1 && step < 3} />
+      <Circle cx={xL2a}  cy={y3} label='li'  scu={step > 1 && step < 3} />
+      <Circle cx={xL2b}  cy={y3} label='li'  scu={step > 1 && step < 3} />
+      <Circle cx={xL1b}  cy={y1} label='div' scu={step > 1} />
+      <Circle cx={xL2c}  cy={y3} label='p'   scu={step > 1} />
+      <Circle cx={xL2d}  cy={y3} label='p'   scu={step > 1 && step < 3} />
     </SvgWrapper>
   );
 }
