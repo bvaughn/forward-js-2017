@@ -1,36 +1,68 @@
-import React from 'react';
-import { Code, Step } from 'react-presents';
+import React, { Component } from 'react';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import warningImage from '../../public/v9-dev-mode-style-warning.png';
+import { Radio, RadioGroup } from 'react-radio-group';
+import ExampleList from '../Components/ExampleList';
 
-const source = require('raw!../../examples/forgotten-styles.js')
+export default class Slide extends Component {
+  static title = 'Scrolling to a row via props';
 
-const slide = () => (
-  <ContentSlide>
-    <h1>{slide.title}</h1>
-    <Step index={0} maxIndex={1}>
-      <p>Most common mistake: forgot to set the <code>style</code>.</p>
-    </Step>
-    <Step index={1} exact>
-      <Code
-        highlightLines={[[3,3], [12,15]]}
-        value={source}
-      />
-    </Step>
-    <Step index={2}>
-      <div>
-        <p>Version 9 now logs dev warning for this!</p>
-        <p>
-          <img
-            role="presentation"
-            src={warningImage}
+  constructor (props, context) {
+    super(props, context);
+
+    this.state = {
+      scrollToAlignment: 'auto',
+      scrollToIndex: 0
+    };
+  }
+
+  render () {
+    const { scrollToAlignment, scrollToIndex } = this.state;
+
+    return (
+      <ContentSlide>
+        <h1>{Slide.title}</h1>
+
+        <p>Controlled by 2 simple properties:</p>
+
+        <ul>
+          <Step index={1}>
+            <li>
+              <code>scrollToAlignment</code> <RadioGroup
+                Component='span'
+                name='scrollToAlignment'
+                onChange={(scrollToAlignment) => this.setState({ scrollToAlignment })}
+                selectedValue={scrollToAlignment}
+              >
+                <Radio value='auto' /> "auto" (default)
+                <Radio value='center' /> "center"
+                <Radio value='end' /> "end"
+                <Radio value='start' /> "start"
+              </RadioGroup>
+            </li>
+          </Step>
+
+          <Step index={2}>
+            <li>
+              <code>scrollToIndex</code> <input
+                onChange={() => this.setState({
+                  scrollToIndex: parseInt(this._input.value, 10)
+                })}
+                ref={(ref) => this._input = ref}
+                type='number'
+                value={scrollToIndex}
+              />
+            </li>
+          </Step>
+        </ul>
+
+        <Step index={3}>
+          <ExampleList
+            scrollToAlignment={scrollToAlignment}
+            scrollToIndex={scrollToIndex}
           />
-        </p>
-      </div>
-    </Step>
-  </ContentSlide>
-);
-
-slide.title = 'Styles';
-
-export default slide;
+        </Step>
+      </ContentSlide>
+    );
+  }
+}

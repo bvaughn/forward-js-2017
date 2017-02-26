@@ -1,44 +1,52 @@
 import React from 'react';
 import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import styled from 'styled-components';
-import DeferMeasurements from '../Components/DeferMeasurements';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
+import { CollectionSvg, GridSvg, ListSvg, TableSvg } from '../Components/BuildingBlocks';
 
-const Spacer = styled.div`
-  margin-top: 0.5rem;
-`
-
-const slide = () => (
+ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
-    <Step index={0} maxIndex={1}>
-      <p>
-        <QuestionLabel>Problem</QuestionLabel>: Measuring wastes cycles, especially if it requires rendering.
-      </p>
-    </Step>
+
     <Step index={1} exact>
-      <p>
-        <AnswerLabel>Solution</AnswerLabel>: Don't measure sizes until content is actually displayed.
-      </p>
+      <div>
+        <h2>List</h2>
+        <ListSvg />
+      </div>
     </Step>
-    <Step index={2}>
-      <p>
-        <QuestionLabel>Problem</QuestionLabel>: But how can we know the total height if we don't measure?
-      </p>
+    <Step index={2} exact>
+      <div>
+        <h2>Table</h2>
+        <TableSvg />
+      </div>
     </Step>
-    <Step index={3}>
-      <p>
-        <AnswerLabel>Solution</AnswerLabel>: Use estimated sizes initially and gradually adjust.
-      </p>
+    <Step index={3} maxIndex={4}>
+      <div>
+        <p>Windowing isn't just vertical!</p>
+        <Step index={4}>
+          <div>
+            <h2>Grid</h2>
+            <GridSvg />
+          </div>
+        </Step>
+      </div>
     </Step>
-    <Spacer />
-    <Step index={4}>
-      <DeferMeasurements />
+    <Step index={5} maxIndex={7}>
+      <div>
+        <ul>
+          <li>What about data that isn't linear (eg Pinterest layout, Gantt chart)?</li>
+          <Step index={6}><li>Can we even window this type of data?</li></Step>
+        </ul>
+        <Step index={7}>
+          <div>
+            <h2>Collection</h2>
+            <CollectionSvg />
+          </div>
+        </Step>
+      </div>
     </Step>
   </ContentSlide>
 );
 
-slide.title = 'Does it have to measure everything up front?';
+slide.title = 'The building blocks';
 
 export default slide;

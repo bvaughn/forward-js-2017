@@ -1,78 +1,43 @@
 import React from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import chatImage from '../../public/non-uniform-heights-chat.png';
-import dropDownImage from '../../public/non-uniform-heights-drop-down.png';
+import Note from '../Components/Note';
 
-const sourceRowHeightGetter = require('raw!../../examples/dynamic-row-height-getter.js');
-const sourceCellMeasurer = require('raw!../../examples/dynamic-cell-measurer.js');
+const source = require('raw!../../examples/row-renderer.js');
+
+const DIM_LINES = [
+  undefined,
+  [[0,1], [3,4], [6,6], [8,9]],
+  [[1,3], [5,9]]
+]
 
 const slide = ({ stepIndex }) => (
-  <ContentSlide>
-    <h1>{slide.title}</h1>
-
-    <Step index={1} maxIndex={3}>
-      <div>
-        <p>This introduces a couple of challenges:</p>
+    <ContentSlide>
+      <h1>{slide.title}</h1>
+      <p>At its core react-virtualized only requires 2 things:</p>
+      <Step index={1}>
         <ul>
-          <Step index={2}><li>Calculating total size becomes more difficult</li></Step>
-          <Step index={3}><li>Measuring all items hurts performance</li></Step>
+          <li>Item count (eg <code>array.length</code>, Immutable <code>collection.size</code>)</li>
+          <Step index={2}>
+            <li>An item renderer</li>
+          </Step>
         </ul>
-      </div>
-    </Step>
-
-    <Step index={4} maxIndex={6}>
-      <div>
-        <p>Two basic cases:</p>
-        <ul>
-          <Step index={5}><li>Size can be inferred from the data (eg drop-down rows &amp; headers)</li></Step>
-          <Step index={6}><li>Size must be measured by the browser (eg chat messages)</li></Step>
-        </ul>
-        <Step index={5} exact>
-          <img src={dropDownImage} role='presentation' width={250} />
-        </Step>
-        <Step index={6} exact>
-          <img src={chatImage} role='presentation' />
-        </Step>
-      </div>
-    </Step>
-
-    <Step index={7} maxIndex={10}>
-      <div>
-        <p>If size can be inferred from the data...</p>
-
-        <Step index={8}>
-          <p><strong className='AnswerLabel'>Solution</strong>: Use a function property!</p>
-        </Step>
-
-        <Step index={9}>
-          <Code
-            dimLines={stepIndex === 9 ? [[3,7], [9,12]] : []}
-            value={sourceRowHeightGetter}
-          />
-        </Step>
-      </div>
-    </Step>
-
-    <Step index={11} maxIndex={14}>
-      <div>
-        <p>If size must be measured by the browser...</p>
-
-        <Step index={12}>
-          <p><strong className='AnswerLabel'>Solution</strong>: Use a HOC (<code>CellMeasurer</code>)</p>
-        </Step>
-
-        <Step index={13}>
-          <Code
-            dimLines={stepIndex > 13 ? [[4,5], [13,15], [17,23], [26,31]] : []}
-            value={sourceCellMeasurer}
-          />
-        </Step>
-      </div>
-    </Step>
-  </ContentSlide>
+      </Step>
+      <Step index={2}>
+        <Code
+          dimLines={DIM_LINES[stepIndex - 2]}
+          value={source}
+        />
+      </Step>
+      <Step index={3}>
+        <Note>You can return any DOM element</Note>
+      </Step>
+      <Step index={4}>
+        <Note>You can modify or override the style</Note>
+      </Step>
+    </ContentSlide>
 );
 
-slide.title = 'Can it handle items with varying heights?';
+slide.title = 'The data model';
 
 export default slide;

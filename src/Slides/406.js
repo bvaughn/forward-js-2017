@@ -15,7 +15,7 @@ const slide = ({ stepIndex }) => {
           <Step index={1}>
             <p>
               <QuestionLabel>Problem</QuestionLabel>:
-              (eg Chrome 33.5M px, IE 1.5M px)
+              DOM element size limits (eg Chrome 33.5M px, IE 1.5M px)
             </p>
           </Step>
           <ul>
@@ -51,6 +51,6 @@ const slide = ({ stepIndex }) => {
   );
 }
 
-slide.title = 'Did you know about DOM element size constraints?';
+slide.title = 'Will we run into browser limitations?';
 
 export default slide;

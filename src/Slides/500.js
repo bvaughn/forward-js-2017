@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'Bonus slide: Common integration mistakes';
+slide.title = 'Examples & recipes'
 
 export default slide;

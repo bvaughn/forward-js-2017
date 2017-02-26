@@ -1,65 +1,70 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { AnswerLabel } from '../Components/Labels';
+import { AnswerLabel, QuestionLabel } from '../Components/Labels';
+import Note from '../Components/Note';
+import DragAndDropList from '../Components/DragAndDropList';
 
-const sourceA = require('raw!../../examples/pass-through-props.js');
-const sourceB = require('raw!../../examples/force-update.js');
+const source = require('raw!../../examples/drag-and-drop-key-points.js');
 
-const slide = ({ stepIndex }) => (
-  <ContentSlide>
-    <h1>{slide.title}</h1>
+const DIM_LINES = [
+  [[1,3], [6,27]],
+  [[0,9], [13,18], [26,27]],
+  [[0,20], [24,27]]
+]
 
-    <Step index={0} maxIndex={6}>
-      <div>
-        <ul>
-          <Step index={1}><li>All components extend <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a></li></Step>
-          <Step index={2}><li>No components have access to the underlying array/collection</li></Step>
-        </ul>
-        <Step index={3}>
+export default class Slide extends Component {
+  static contextTypes = {
+    list: PropTypes.array
+  };
+
+  static propTypes = {
+    stepIndex: PropTypes.number.isRequired
+  };
+
+  static title = 'Drag-and-drop rows';
+
+  render () {
+    const { list } = this.context;
+    const { stepIndex } = this.props;
+
+    return (
+      <ContentSlide>
+        <h1>{Slide.title}</h1>
+
+        <Step index={0} maxIndex={2}>
           <div>
-            <h2>This means...</h2>
-            <ul>
-              <Step index={4}><li>Sorting a list will not auto-update RV components</li></Step>
-              <Step index={5}><li>Changing an item within a list will not auto-update RV components</li></Step>
-              <Step index={6}><li>State changes that change item sizes will not auto-update RV components</li></Step>
-            </ul>
+            <Step index={0}>
+              <p>
+                <QuestionLabel>Question</QuestionLabel>:
+                Is it possible to integrate with another library for drag-and-drop?
+              </p>
+            </Step>
+
+            <Step index={1}>
+              <p>
+                <AnswerLabel>Answer</AnswerLabel>:
+                Yes!
+                Use <a href='https://github.com/clauderic/react-sortable-hoc'>react-sortable-hoc</a> with react-virtualized for drag-and-drop.
+              </p>
+            </Step>
+
+            <Step index={2}>
+              <div>
+                <DragAndDropList list={list} />
+                <Note>Click and drag rows above</Note>
+              </div>
+            </Step>
           </div>
         </Step>
-      </div>
-    </Step>
 
-    <Step index={7} maxIndex={11}>
-      <div>
-        <p>
-          <AnswerLabel>Solution</AnswerLabel>:
-          Let react-virtualized know that something external has changed:
-        </p>
-
-        <Step index={8} maxIndex={9}>
-          <div>
-            <p>The simplest way is with pass-through properties:</p>
-            <Code
-              dimLines={stepIndex === 8 ? [[0,0], [2,5], [7,9]] : undefined}
-              value={sourceA}
-            />
-          </div>
+        <Step index={3} maxIndex={6}>
+          <Code
+            dimLines={DIM_LINES[stepIndex - 3]}
+            value={source}
+          />
         </Step>
-
-        <Step index={10} maxIndex={11}>
-          <div>
-            <p>But you can also use Api methods (eg <code>forceUpdate</code>)</p>
-            <Code
-              dimLines={stepIndex === 10 ? [[0,0], [6,10], [12,15]] : undefined}
-              value={sourceB}
-            />
-          </div>
-        </Step>
-      </div>
-    </Step>
-  </ContentSlide>
-);
-
-slide.title = 'Pure components';
-
-export default slide;
+      </ContentSlide>
+    );
+  }
+}

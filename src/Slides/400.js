@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'Examples & recipes'
+slide.title = 'Deeper dive'
 
 export default slide;

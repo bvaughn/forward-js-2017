@@ -1,70 +1,44 @@
-import React, { Component, PropTypes } from 'react';
-import { Code, Step } from 'react-presents';
+import React from 'react';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
+import styled from 'styled-components';
+import DeferMeasurements from '../Components/DeferMeasurements';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
-import Note from '../Components/Note';
-import DragAndDropList from '../Components/DragAndDropList';
 
-const source = require('raw!../../examples/drag-and-drop-key-points.js');
+const Spacer = styled.div`
+  margin-top: 0.5rem;
+`
 
-const DIM_LINES = [
-  [[1,3], [6,27]],
-  [[0,9], [13,18], [26,27]],
-  [[0,20], [24,27]]
-]
+const slide = () => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
+    <Step index={0} maxIndex={1}>
+      <p>
+        <QuestionLabel>Problem</QuestionLabel>: Measuring wastes cycles, especially if it requires rendering.
+      </p>
+    </Step>
+    <Step index={1} exact>
+      <p>
+        <AnswerLabel>Solution</AnswerLabel>: Don't measure sizes until content is actually displayed.
+      </p>
+    </Step>
+    <Step index={2}>
+      <p>
+        <QuestionLabel>Problem</QuestionLabel>: But how can we know the total height if we don't measure?
+      </p>
+    </Step>
+    <Step index={3}>
+      <p>
+        <AnswerLabel>Solution</AnswerLabel>: Use estimated sizes initially and gradually adjust.
+      </p>
+    </Step>
+    <Spacer />
+    <Step index={4}>
+      <DeferMeasurements />
+    </Step>
+  </ContentSlide>
+);
 
-export default class Slide extends Component {
-  static contextTypes = {
-    list: PropTypes.array
-  };
+slide.title = 'Do we have to pre-measure everything?';
 
-  static propTypes = {
-    stepIndex: PropTypes.number.isRequired
-  };
-
-  static title = 'Drag-and-drop rows';
-
-  render () {
-    const { list } = this.context;
-    const { stepIndex } = this.props;
-
-    return (
-      <ContentSlide>
-        <h1>{Slide.title}</h1>
-
-        <Step index={0} maxIndex={2}>
-          <div>
-            <Step index={0}>
-              <p>
-                <QuestionLabel>Question</QuestionLabel>:
-                Is it possible to integrate with another library for drag-and-drop?
-              </p>
-            </Step>
-
-            <Step index={1}>
-              <p>
-                <AnswerLabel>Answer</AnswerLabel>:
-                Yes!
-                Use <a href='https://github.com/clauderic/react-sortable-hoc'>react-sortable-hoc</a> with react-virtualized for drag-and-drop.
-              </p>
-            </Step>
-
-            <Step index={2}>
-              <div>
-                <DragAndDropList list={list} />
-                <Note>Click and drag rows above</Note>
-              </div>
-            </Step>
-          </div>
-        </Step>
-
-        <Step index={3} maxIndex={6}>
-          <Code
-            dimLines={DIM_LINES[stepIndex - 3]}
-            value={source}
-          />
-        </Step>
-      </ContentSlide>
-    );
-  }
-}
+export default slide;

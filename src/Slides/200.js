@@ -3,11 +3,10 @@ import TitleSlide from '../Presentation/TitleSlide';
 
 const slide = () => (
   <TitleSlide>
-    <h1>{slide.title} <i className='fa fa-github' /></h1>
-    <h2><a href='https://github.com/bvaughn/react-virtualized'>github.com/bvaughn/react-virtualized</a></h2>
+    <h1>{slide.title}</h1>
   </TitleSlide>
 );
 
-slide.title = 'react-virtualized'
+slide.title = 'Function children (aka render callbacks)'
 
 export default slide;

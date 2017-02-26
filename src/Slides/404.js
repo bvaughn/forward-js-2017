@@ -1,72 +1,54 @@
-import React, { PropTypes } from 'react';
-import { Code, Step } from 'react-presents';
+import React from 'react';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
-import Note from '../Components/Note';
-import Spreadsheet from '../Components/Spreadsheet';
+import DeferMeasurements from '../Components/DeferMeasurements';
+import { AnswerLabel } from '../Components/Labels';
 
-const sourceGrids = require('raw!../../examples/multi-grid.js');
-const sourceRenderer = require('raw!../../examples/multi-grid-renderers.js');
+const slide = () => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
 
-const GRID_DIM_LINES = [
-  undefined,
-  [[0,5], [8,14]]
-];
+    <Step index={1} maxIndex={4}>
+      <div>
+        <h2>Why would we want to?</h2>
 
-const RENDERER_DIM_LINES = [
-  undefined,
-  [[0,1], [4,6], [8,8], [10,11]],
-  [[0,3], [7,7], [9,11]]
-];
-
-const slide = ({ stepIndex }, { list }) => {
-  return (
-    <ContentSlide>
-      <h1>{slide.title}</h1>
-
-      <Step index={0} maxIndex={2}>
-        <div>
-          <p>
-            <QuestionLabel>Question</QuestionLabel>: Is it possible to create sticky rows or columns? (eg spreadsheet)
-          </p>
-
-          <Step index={1}>
-            <p>
-              <AnswerLabel>Answer</AnswerLabel>: Yes! Use <code>MultiGrid</code>.
-            </p>
-          </Step>
-
+        <ul>
           <Step index={2}>
-            <div>
-              <Spreadsheet list={list} />
-
-              <Note>Scroll around; click to edit a cell above.</Note>
-            </div>
+            <li>Scroll to unread notification in a chat application</li>
           </Step>
-        </div>
-      </Step>
+          <Step index={3}>
+            <li>Jump to a cell in a spreadsheet</li>
+          </Step>
+          <Step index={4}>
+            <li>Keyboard navigation in a drop-down (eg this presentation)</li>
+          </Step>
+        </ul>
+      </div>
+    </Step>
 
-      <Step index={3} maxIndex={4}>
-        <Code
-          dimLines={GRID_DIM_LINES[stepIndex - 3]}
-          value={sourceGrids}
-        />
-      </Step>
+    <Step index={5}>
+      <div>
+        <p>
+          <AnswerLabel>Solution</AnswerLabel>: The basic approach:
+        </p>
 
-      <Step index={5} maxIndex={7}>
-        <Code
-          dimLines={RENDERER_DIM_LINES[stepIndex - 5]}
-          value={sourceRenderer}
-        />
-      </Step>
-    </ContentSlide>
-  );
-}
+        <ul>
+          <Step index={6}>
+            <li>
+              J.I.T. measure rows before the specified index
+              <Step index={7}><ul><li>No need to measure rows that come after</li></ul></Step>
+            </li>
+          </Step>
+          <Step index={8}><li>Keep running total of measured sizes (in cache)</li></Step>
+        </ul>
+        <Step index={9}>
+          <DeferMeasurements />
+        </Step>
+      </div>
+    </Step>
+  </ContentSlide>
+);
 
-slide.contextTypes = {
-  list: PropTypes.array.isRequired
-};
-
-slide.title = 'Sticky rows & columns';
+slide.title = 'Can we progammatically jump (scroll) to an item?';
 
 export default slide;

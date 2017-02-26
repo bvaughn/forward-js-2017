@@ -1,68 +1,78 @@
-import React, { Component } from 'react';
-import { Step } from 'react-presents';
+import React from 'react';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { Radio, RadioGroup } from 'react-radio-group';
-import ExampleList from '../Components/ExampleList';
+import chatImage from '../../public/non-uniform-heights-chat.png';
+import dropDownImage from '../../public/non-uniform-heights-drop-down.png';
 
-export default class Slide extends Component {
-  static title = 'Scrolling to a row via props';
+const sourceRowHeightGetter = require('raw!../../examples/dynamic-row-height-getter.js');
+const sourceCellMeasurer = require('raw!../../examples/dynamic-cell-measurer.js');
 
-  constructor (props, context) {
-    super(props, context);
+const slide = ({ stepIndex }) => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
 
-    this.state = {
-      scrollToAlignment: 'auto',
-      scrollToIndex: 0
-    };
-  }
-
-  render () {
-    const { scrollToAlignment, scrollToIndex } = this.state;
-
-    return (
-      <ContentSlide>
-        <h1>{Slide.title}</h1>
-
-        <p>Controlled by 2 simple properties:</p>
-
+    <Step index={1} maxIndex={3}>
+      <div>
+        <p>This introduces a couple of challenges:</p>
         <ul>
-          <Step index={1}>
-            <li>
-              <code>scrollToAlignment</code> <RadioGroup
-                Component='span'
-                name='scrollToAlignment'
-                onChange={(scrollToAlignment) => this.setState({ scrollToAlignment })}
-                selectedValue={scrollToAlignment}
-              >
-                <Radio value='auto' /> "auto" (default)
-                <Radio value='center' /> "center"
-                <Radio value='end' /> "end"
-                <Radio value='start' /> "start"
-              </RadioGroup>
-            </li>
-          </Step>
-
-          <Step index={2}>
-            <li>
-              <code>scrollToIndex</code> <input
-                onChange={() => this.setState({
-                  scrollToIndex: parseInt(this._input.value, 10)
-                })}
-                ref={(ref) => this._input = ref}
-                type='number'
-                value={scrollToIndex}
-              />
-            </li>
-          </Step>
+          <Step index={2}><li>Calculating total size becomes more difficult</li></Step>
+          <Step index={3}><li>Measuring all items hurts performance</li></Step>
         </ul>
+      </div>
+    </Step>
 
-        <Step index={3}>
-          <ExampleList
-            scrollToAlignment={scrollToAlignment}
-            scrollToIndex={scrollToIndex}
+    <Step index={4} maxIndex={6}>
+      <div>
+        <p>Two basic cases:</p>
+        <ul>
+          <Step index={5}><li>Size can be inferred from the data (eg drop-down rows &amp; headers)</li></Step>
+          <Step index={6}><li>Size must be measured by the browser (eg chat messages)</li></Step>
+        </ul>
+        <Step index={5} exact>
+          <img src={dropDownImage} role='presentation' width={250} />
+        </Step>
+        <Step index={6} exact>
+          <img src={chatImage} role='presentation' />
+        </Step>
+      </div>
+    </Step>
+
+    <Step index={7} maxIndex={10}>
+      <div>
+        <p>If size can be inferred from the data...</p>
+
+        <Step index={8}>
+          <p><strong className='AnswerLabel'>Solution</strong>: Use a function property!</p>
+        </Step>
+
+        <Step index={9}>
+          <Code
+            dimLines={stepIndex === 9 ? [[3,7], [9,12]] : []}
+            value={sourceRowHeightGetter}
           />
         </Step>
-      </ContentSlide>
-    );
-  }
-}
+      </div>
+    </Step>
+
+    <Step index={11} maxIndex={14}>
+      <div>
+        <p>If size must be measured by the browser...</p>
+
+        <Step index={12}>
+          <p><strong className='AnswerLabel'>Solution</strong>: Use a HOC (<code>CellMeasurer</code>)</p>
+        </Step>
+
+        <Step index={13}>
+          <Code
+            dimLines={stepIndex > 13 ? [[4,5], [13,15], [17,23], [26,31]] : []}
+            value={sourceCellMeasurer}
+          />
+        </Step>
+      </div>
+    </Step>
+  </ContentSlide>
+);
+
+slide.title = 'Can we window items with varying heights?';
+
+export default slide;

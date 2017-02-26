@@ -1,53 +1,58 @@
-import React, { PropTypes } from 'react';
-import { Code, Step } from 'react-presents';
+import React from 'react';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
+import styled from 'styled-components';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
-import ResizableRowsList from '../Components/ResizableRowsList';
+import image from '../../public/cache-all-the-things.png';
 
-const source = require('raw!../../examples/resizable-cells-key-points.js');
+const Image = styled.img`
+  margin-left: 0.5rem;
+`;
 
-const DIM_LINES = [
-  [[1,10], [17,29]]
-]
-
-const slide = ({ stepIndex }, { list }) => (
+const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <Step index={0} maxIndex={2}>
-      <div>
-        <p>
-          <QuestionLabel>Question</QuestionLabel>:
-          Can rows and columns be resizable?
-        </p>
-
-        <Step index={1}>
-          <p>
-            <AnswerLabel>Answer</AnswerLabel>:
-            Yes!
-            Use <a href='https://github.com/mzabriskie/react-draggable/'>react-draggable</a> with react-virtualized for resizable rows.
-          </p>
-        </Step>
-
-        <Step exactMatch index={2}>
-          <ResizableRowsList list={list} />
-        </Step>
-      </div>
+    <Step index={1}>
+      <p>
+        <AnswerLabel>Answer</AnswerLabel>: No! Cache all measurements!
+      </p>
     </Step>
 
-    <Step index={3} maxIndex={4}>
-      <Code
-        dimLines={DIM_LINES[stepIndex - 3]}
-        value={source}
+    <div className='Spacer' />
+
+    <Step index={2}>
+      <p>
+        <QuestionLabel>Question</QuestionLabel>: Can we cache more than this? <Step index={3}><span>Can we cache the rows themselves?</span></Step>
+      </p>
+    </Step>
+
+    <Step index={4}>
+      <Image
+        height={57}
+        role='presentation'
+        src={image}
+        width={92}
       />
     </Step>
+
+    <Step index={5}>
+      <p>
+        <AnswerLabel>Answer</AnswerLabel>: Yes, but it's tricky.
+      </p>
+    </Step>
+
+    <ul>
+      <Step index={6}>
+        <li>Cache rendered rows while scrolling</li>
+      </Step>
+      <Step index={7}>
+        <li>Clear cache when scrolling stops</li>
+      </Step>
+    </ul>
   </ContentSlide>
 );
 
-slide.contextTypes = {
-  list: PropTypes.array.isRequired
-};
-
-slide.title = 'Resizable rows';
+slide.title = 'Do we have to measure things more than once?';
 
 export default slide;
