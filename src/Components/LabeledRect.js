@@ -2,9 +2,20 @@ import classnames from 'classnames';
 import React from 'react';
 import './LabeledSvg.css';
 
-export default function LabeledRect ({ children, className, x, y, width, height, mono, textClassName }) {
+export default function LabeledRect ({
+  children,
+  className,
+  height,
+  hidden,
+  mono,
+  textClassName,
+  x,
+  width,
+  y
+}) {
   textClassName = classnames('LabeledSvgText', textClassName, {
-    LabeledSvgTextMono: mono
+    LabeledSvgTextMono: mono,
+    NotRenderedLabeledSvgText: hidden
   })
   return (
     <g>

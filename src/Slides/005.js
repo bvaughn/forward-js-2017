@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
+import Note from '../Components/Note';
 import ScuChart from '../Components/ScuChart';
 
 const source = require('raw!../../examples/pure-component.js')
@@ -34,7 +35,7 @@ const slide = ({ stepIndex }) => (
       </div>
     </Step>
 
-    <Step index={10} maxIndex={14}>
+    <Step index={10} maxIndex={15}>
       <div>
         <p>
           <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a> makes this easy.
@@ -54,22 +55,27 @@ const slide = ({ stepIndex }) => (
           />
         </Step>
         <Step index={14}><span /></Step>
+        <Step index={15}>
+          <Note>
+            For React 15.2 and earlier use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a>.
+          </Note>
+        </Step>
       </div>
     </Step>
 
-    <Step index={15}>
+    <Step index={16}>
       <div>
         <h2>Is that all?</h2>
         <ul>
-          <Step index={16}><li><a href='https://facebook.github.io/immutable-js/'>Immutable</a> data speeds up comparisons</li></Step>
-          <Step index={17}>
+          <Step index={17}><li><a href='https://facebook.github.io/immutable-js/'>Immutable</a> data speeds up comparisons</li></Step>
+          <Step index={18}>
             <li>
-              Choose <code>props</code> carefully <Step index={21}><span>(also helps with testing!)</span></Step>
+              Choose <code>props</code> carefully <Step index={22}><span>(also helps with testing!)</span></Step>
 
               <ul>
-                <Step index={18}><li><i className='fa fa-frown-o' /> <code>users</code>, <code>index</code></li></Step>
-                <Step index={19}><li><i className='fa fa-smile-o' /> <code>user</code></li></Step>
-                <Step index={20}><li><i className='fa fa-smile-o' /><i className='fa fa-smile-o' /> <code>name</code>, <code>email</code></li></Step>
+                <Step index={19}><li><i className='fa fa-frown-o' /> <code>users</code>, <code>index</code></li></Step>
+                <Step index={20}><li><i className='fa fa-smile-o' /> <code>user</code></li></Step>
+                <Step index={21}><li><i className='fa fa-smile-o' /><i className='fa fa-smile-o' /> <code>name</code>, <code>email</code></li></Step>
               </ul>
             </li>
           </Step>

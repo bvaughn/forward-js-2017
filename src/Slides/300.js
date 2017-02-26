@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'What else can react-virtualized do?'
+slide.title = 'What kinds of things can the building blocks do?'
 
 export default slide;

@@ -2,7 +2,7 @@ import now from 'performance-now';
 import React, { Component, PropTypes } from 'react';
 import ContentSlide from '../Presentation/ContentSlide';
 import Note from '../Components/Note';
-import { List, ListRow, ListWithBorderRadius, RowName, RowNumber, RowStack, RowSummary } from '../Components/StyledListElements';
+import { List, ListRow, RowName, RowNumber, RowStack, RowSummary } from '../Components/StyledListElements';
 
 export default class Slide extends Component {
   static contextTypes = {
@@ -16,8 +16,7 @@ export default class Slide extends Component {
 
     this.state = {
       initializationTime: 0,
-      initialized: false,
-      useBorderRadius: false
+      initialized: false
     };
   }
 
@@ -43,11 +42,9 @@ export default class Slide extends Component {
 
   render () {
     const { list } = this.context;
-    const { initializationTime, initialized, useBorderRadius } = this.state;
+    const { initializationTime, initialized } = this.state;
 
-    const ListComponent = useBorderRadius
-      ? ListWithBorderRadius
-      : List;
+    const ListComponent = List;
 
     return (
       <ContentSlide>
@@ -90,21 +87,8 @@ export default class Slide extends Component {
             </ListComponent>
 
             <Note>
-              Scrolling performance poor if repaints are triggered
+              Scrolling performance also poor if repaints are triggered (eg <code>border-radius</code>)
             </Note>
-
-            <p>
-              <label>
-                <input
-                  checked={useBorderRadius}
-                  onChange={() => this.setState({
-                    useBorderRadius: this._checkbox.checked
-                  })}
-                  ref={(ref) => this._checkbox = ref}
-                  type='checkbox'
-                /> Trigger repaints on scroll?
-              </label>
-            </p>
           </div>
         )}
       </ContentSlide>

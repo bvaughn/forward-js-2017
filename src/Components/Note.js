@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const DefaultNote = styled.div`
-  margin: 0 0 0.75rem;
+  margin: 0.25rem 0 0.75rem;
   background: #4A90E2;
   color: #fff;
   display: inline-block;
@@ -12,6 +12,10 @@ const DefaultNote = styled.div`
   .fa {
     margin-right: 0.25rem;
     color: #fff;
+  }
+
+  a {
+    color: inherit;
   }
 `
 

@@ -34,8 +34,6 @@ export default class MySlide extends Component {
   }
 
   render () {
-    const { focusedColumnIndex, focusedRowIndex } = this.state;
-
     return (
       <AutoSizer disableHeight>
         {({ width }) => (

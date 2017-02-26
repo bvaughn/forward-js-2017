@@ -27,10 +27,11 @@ export function ListSvg (props) {
             svgListRow: index < 6,
             svgListRowNotRendered: index >= 6
           })}
+          hidden={index >= 6}
         >
           {index < 6
             ? 'Row'
-            : 'Hidden'
+            : 'Not Rendered'
           }
         </LabeledRect>
       ))}
@@ -63,10 +64,11 @@ export function TableSvg (props) {
               svgTableColumn: index < 6,
               svgTableColumnNotRendered: index >= 6
             })}
+            hidden={index >= 6}
           >
             {index === 0 && 'Header'}
             {index > 0 && index < 6 && 'Column'}
-            {index >= 6 && 'Hidden'}
+            {index >= 6 && 'Not Rendered'}
           </LabeledRect>
        ))
       ))}
@@ -110,8 +112,9 @@ export function GridSvg (props) {
           width={90}
           height={90}
           className='svgGridBoxNotRendered'
+          hidden
         >
-          Hidden
+          Not Rendered
        </LabeledRect>
       ))}
       <rect x={274} y={0} width={111} height={274} className='svgNotRenderedDimmer' />
@@ -169,8 +172,9 @@ export function CollectionSvg (props) {
         cy={200}
         r={40}
         className='svgCollectionBoxNotRendered'
+        hidden
       >
-        Hidden
+        Not Rendered
       </LabeledCircle>
       <LabeledRect
         x={50}
@@ -178,8 +182,9 @@ export function CollectionSvg (props) {
         width={100}
         height={65}
         className='svgCollectionBoxNotRendered'
+        hidden
       >
-        Hidden
+        Not Rendered
       </LabeledRect>
       <rect x={274} y={0} width={111} height={274} className='svgNotRenderedDimmer' />
       <rect x={0} y={274} width={385} height={111} className='svgNotRenderedDimmer' />

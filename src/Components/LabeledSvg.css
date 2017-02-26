@@ -2,6 +2,10 @@
   font-size: 14px;
 }
 
+.NotRenderedLabeledSvgText {
+  font-size: 12px;
+}
+
 .LabeledSvgTextMono {
   font-family: monospace;
 }

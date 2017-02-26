@@ -51,9 +51,13 @@ const globalStyles = `
   }
 
   code {
-    background: #e7e8e2;
+    background: rgba(0,0,0,.05);
     border-radius: 5px;
     font-family: monospace;
+  }
+
+  strike {
+    color: #666;
   }
 
   button {
@@ -72,6 +76,10 @@ const globalStyles = `
     cursor: default;
   }
 
+  .CodeMirror-scroll {
+    overflow: hidden !important;
+  }
+
   .VirtualizedSelect {
     font-size: 14px;
   }
@@ -79,7 +87,7 @@ const globalStyles = `
 
 export default class ForwardTheme extends Component {
   componentWillMount () {
-    injectGlobal`${globalStyles}`
+    injectGlobal([`${globalStyles}`])
   }
 
   render () {

@@ -29,17 +29,17 @@ const slide = ({ stepIndex }, { slide }) => {
       <ul>
         <MaybeLI index={1} stepIndex={stepIndex}>
           <div>
-            DOM element for presenting data (eg <code>&lt;ul&gt;</code>, 180px tall)
+            DOM element for presenting data (eg <code>&lt;ul&gt;</code>, 150px tall)
           </div>
         </MaybeLI>
         <MaybeLI index={2} stepIndex={stepIndex}>
           <div>
-            Set of items (eg 10 items, each 60px tall)
+            Set of items (eg 10 items, each 50px tall)
           </div>
         </MaybeLI>
         <MaybeLI index={3} stepIndex={stepIndex}>
           <div>
-            Big DOM element for scrolling (eg 600px tall)
+            Big DOM element for scrolling (eg 500px tall)
           </div>
         </MaybeLI>
         <MaybeLI index={4} stepIndex={stepIndex}>

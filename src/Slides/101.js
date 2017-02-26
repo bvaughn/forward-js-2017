@@ -3,7 +3,7 @@ import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
 import MarioSvg from '../Components/MarioSvg';
-import booksImage from '../../public/books.jpg';
+import kindleImage from '../../public/kindle.jpg';
 import occlusionImage from '../../public/occlusion-culling.jpg';
 
 const OcclusionImage = styled.img`
@@ -12,8 +12,8 @@ const OcclusionImage = styled.img`
   height: auto;
 `
 
-const BooksImage = styled.img`
-  width: 270px;
+const KindleImage = styled.img`
+  width: 250px;
   max-width: 100%;
   height: auto;
   margin-left: 2.5rem;
@@ -34,16 +34,16 @@ const slide = () => (
           <Step index={2}><li>Simple to describe but complex to implement.</li></Step>
           <Step index={3}>
             <li>
-              Analog example: books
+              Analog example: <strike>books</strike> Kindle
               <Step index={4}><span>, Star Wars opening credits</span></Step>
             </li>
           </Step>
         </ul>
 
         <Step index={3} exact>
-          <BooksImage
+          <KindleImage
             role='presentation'
-            src={booksImage}
+            src={kindleImage}
           />
         </Step>
       </div>
