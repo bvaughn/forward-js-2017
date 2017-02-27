@@ -34,7 +34,7 @@ const slide = () => (
     <Step index={5} maxIndex={8}>
       <ul>
         <Step index={6}><li>Creating lots of Elements</li></Step>
-        <Step index={7}><li>Unnecessary renders</li></Step>
+        <Step index={7}><li>Unnecessary renders (no DOM changes)</li></Step>
         <Step index={8}><li>Accidentally using development build of React 🤡</li></Step>
       </ul>
     </Step>

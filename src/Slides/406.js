@@ -1,56 +1,138 @@
-import React from 'react';
-import { Step } from 'react-presents';
+import classnames from 'classnames';
+import React, { Component, PropTypes } from 'react';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
+import { List } from 'react-virtualized';
+import styled from 'styled-components';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
-import ScaledList from '../Components/ScaledList';
-import image from '../../public/browser-limits-cutoff.png';
+import Note from '../Components/Note';
+import image from '../../public/profile-picture.jpg';
 
-const slide = ({ stepIndex }) => {
-  return (
-    <ContentSlide>
-      <h1>{slide.title}</h1>
+const source = require('raw!../../examples/is-scrolling-cell-renderer.js').trim();
 
-      <Step index={1} maxIndex={5}>
-        <div>
-          <Step index={1}>
-            <p>
-              <QuestionLabel>Problem</QuestionLabel>:
-              DOM element size limits (eg Chrome 33.5M px, IE 1.5M px)
-            </p>
-          </Step>
-          <ul>
-            <Step index={2}><li>Browser won't render items past this point</li></Step>
-            <Step index={3}><li>You can't scroll past it either</li></Step>
-            <Step index={4}><li>Layout gets wonky as you approach the threshold</li></Step>
-          </ul>
-          <Step index={5}>
-            <img
+const Image = styled.img`
+  width: 60px;
+  height: 60px;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-right: 0.5rem;
+`
+
+const ImageTinter = styled.div`
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`
+
+const ImagePlaceholder = styled.div`
+  width: 60px;
+  height: 60px;
+  background-color: #aaa;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+`
+
+const ImageListRowText = styled.span`
+  font-size: 1rem;
+`
+
+export default class Slide extends Component {
+  static contextTypes = {
+    list: PropTypes.array
+  };
+
+  static title = 'What about elements that are really complex?';
+
+  render () {
+    const { list } = this.context;
+
+    return (
+      <ContentSlide>
+        <h1>{Slide.title}</h1>
+
+        <Step index={0} maxIndex={3}>
+          <div>
+            <Step index={1}><p><QuestionLabel>Question</QuestionLabel>: What if a row contains a lot of content?</p></Step>
+            <ul>
+              <Step index={2}><li>Complex <code>&lt;canvas&gt;</code> or <code>&lt;svg&gt;</code> (heavy layout)</li></Step>
+              <Step index={3}><li>Images (trigger network requests)</li></Step>
+            </ul>
+          </div>
+        </Step>
+
+        <Step index={4} maxIndex={5}>
+          <div>
+            <p><AnswerLabel>Solution</AnswerLabel>: Render less while scrolling.</p>
+
+            <Step index={5}>
+              <Code value={source} />
+            </Step>
+          </div>
+        </Step>
+
+        <Step index={6}>
+          <div>
+            <List
+              className='List'
               height={300}
-              role='presentation' 
-              src={image}
-              width={332}
+              overscanRowCount={2}
+              rowCount={list.length}
+              rowHeight={80}
+              rowRenderer={({ index, isScrolling, key, style }) => (
+                <div
+                  className={classnames('ListRow', {
+                    ListRowEven: index % 2 === 0,
+                    ListScrolling: isScrolling
+                  })}
+                  key={index}
+                  style={style}
+                >
+                  {isScrolling && (
+                    <ImagePlaceholder />
+                  )}
+                  {!isScrolling && (
+                    <ImageContainer>
+                      <Image
+                        role='presentation'
+                        src={image}
+                      />
+                      <ImageTinter
+                        style={{
+                          background: hexToRgba(list[index].color, 0.35)
+                        }}
+                      />
+                    </ImageContainer>
+                  )}
+                  <ImageListRowText>
+                    {list[index].name}
+                  </ImageListRowText>
+                </div>
+              )}
+              width={240}
             />
-          </Step>
-        </div>
-      </Step>
 
-      <Step index={6} maxIndex={11}>
-        <div>
-          <h2>So how can we beat this?</h2>
-          <Step index={7}><p><AnswerLabel>Solution</AnswerLabel>: Compress things.</p></Step>
-          <ul>
-            <Step index={8}><li>Scale/compress positions of hidden rows</li></Step>
-            <Step index={9}><li>Render visible rows normally</li></Step>
-          </ul>
-          <Step index={10}>
-            <ScaledList scaled={stepIndex > 10} />
-          </Step>
-        </div>
-      </Step>
-    </ContentSlide>
-  );
+            <Note>
+              Scroll to see row renderer changes.
+            </Note>
+          </div>
+        </Step>
+      </ContentSlide>
+    );
+  }
 }
 
-slide.title = 'Will we run into browser limitations?';
-
-export default slide;
+function hexToRgba(hex, alpha) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const r = parseInt(result[1], 16);
+  const g = parseInt(result[2], 16);
+  const b = parseInt(result[3], 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}

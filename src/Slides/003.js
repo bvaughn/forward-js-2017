@@ -16,7 +16,7 @@ const slide = () => (
     </Step>
     <ul>
       <Step index={1}><li>Most people have slow/older devices</li></Step>
-      <Step index={2}><li>Slow initial load times lead to abandonment</li></Step>
+      <Step index={2}><li>Slow load times cause users to leave</li></Step>
       <Step index={3}>
         <li>
           <div>

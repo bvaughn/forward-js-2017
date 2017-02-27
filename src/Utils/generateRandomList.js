@@ -24,7 +24,7 @@ const loremIpsum = [
   'Sed cursus magna ut vehicula rutrum.'
 ]
 
-export default function generateRandomList (count = 25e3) {
+export default function generateRandomList (count = 15e3) {
   const list = []
 
   for (var i = 0; i < count; i++) {

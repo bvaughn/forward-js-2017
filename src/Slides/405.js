@@ -1,87 +1,56 @@
 import React from 'react';
 import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import styled from 'styled-components';
-import AnimatedList from '../Components/AnimatedList';
-import ExampleList from '../Components/ExampleList';
-import Note from '../Components/Note';
-import movie from '../../public/overscan-example.mp4';
+import { AnswerLabel, QuestionLabel } from '../Components/Labels';
+import ScaledList from '../Components/ScaledList';
+import image from '../../public/browser-limits-cutoff.png';
 
-const Video = styled.video`
-  border: 1px solid #ddd;
-  border-radius: 0.25rem;
-`
+const slide = ({ stepIndex }) => {
+  return (
+    <ContentSlide>
+      <h1>{slide.title}</h1>
 
-const slide = () => (
-  <ContentSlide>
-    <h1>{slide.title}</h1>
-
-    <Step index={1} maxIndex={3}>
-      <div>
-        <Step index={1}><p>Will users be able to tell that we're windowing?</p></Step>
-        <Step index={2}>
-          <Video
-            autoPlay
-            height={293}
-            loop
-            width={220}
-          >
-            <source
-              src={movie}
-              type='video/mp4'
-            />
-          </Video>
-        </Step>
-        <Step index={3}><Note>This concern is unique to windowing.</Note></Step>
-      </div>
-    </Step>
-
-    <Step index={4} maxIndex={8}>
-      <div>
-        <p>Why does windowing cause this?</p>
-        <ul>
+      <Step index={1} maxIndex={5}>
+        <div>
+          <Step index={1}>
+            <p>
+              <QuestionLabel>Problem</QuestionLabel>:
+              DOM element size limits (eg Chrome 33.5M px, IE 1.5M px)
+            </p>
+          </Step>
+          <ul>
+            <Step index={2}><li>Browser won't render items past this point</li></Step>
+            <Step index={3}><li>You can't scroll past it either</li></Step>
+            <Step index={4}><li>Layout gets wonky as you approach the threshold</li></Step>
+          </ul>
           <Step index={5}>
-            <li>Browsers manage scrolling in a separate thread</li>
+            <img
+              height={300}
+              role='presentation' 
+              src={image}
+              width={332}
+            />
           </Step>
-          <Step index={6}>
-            <li>JavaScript is periodically updated of new scroll positions</li>
+        </div>
+      </Step>
+
+      <Step index={6} maxIndex={11}>
+        <div>
+          <h2>So how can we beat this?</h2>
+          <Step index={7}><p><AnswerLabel>Solution</AnswerLabel>: Compress things.</p></Step>
+          <ul>
+            <Step index={8}><li>Scale/compress positions of hidden rows</li></Step>
+            <Step index={9}><li>Render visible rows normally</li></Step>
+          </ul>
+          <Step index={10}>
+            <ScaledList scaled={stepIndex > 10} />
           </Step>
-          <Step index={7}>
-            <li>Sometimes JS doesn't respond fast enough (eg 16ms frame budget)</li>
-          </Step>
-        </ul>
-        <Step index={8}><p>So what can we do about it?</p></Step>
-      </div>
-    </Step>
+        </div>
+      </Step>
+    </ContentSlide>
+  );
+}
 
-    <Step index={9} maxIndex={11}>
-      <div>
-        <Step index={9} exact>
-          <div>
-            <p><strong className='AnswerLabel'>Solution</strong>: Shift rows in the direction being scrolled</p>
-            <AnimatedList direction={1} />
-          </div>
-        </Step>
-        <Step index={10} exact>
-          <div>
-            <p>I call this "overscanning" (like with TVs)</p> 
-            <AnimatedList direction={-1} />
-          </div>
-        </Step>
-        <Step index={11} exact>
-          <div>
-            <ExampleList />
-
-            <Note>
-              View source to see overscanned rows
-            </Note>
-          </div>
-        </Step>
-      </div>
-    </Step>
-  </ContentSlide>
-);
-
-slide.title = 'Will scrolling still feel natural?';
+slide.title = 'Will we run into browser limitations?';
 
 export default slide;
