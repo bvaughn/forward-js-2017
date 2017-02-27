@@ -18,7 +18,7 @@ export default styled.div`
   h1::before {
     display: inline-block;
     content: ' ';
-    background-image: url(/header-prefix.svg);
+    background-image: url(/header-prefix.png);
     background-size: 26px 58px;
     height: 58px;
     width: 26px;
