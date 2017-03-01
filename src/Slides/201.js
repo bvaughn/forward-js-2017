@@ -82,6 +82,6 @@ const slide = () => (
   </ContentSlide>
 );
 
-slide.title = 'Only display visible data'
+slide.title = 'Only create elements the user can see'
 
 export default slide;

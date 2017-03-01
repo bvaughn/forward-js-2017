@@ -1,7 +1,6 @@
 import React from 'react';
 import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import ScaledList from '../Components/ScaledList';
 import image from '../../public/browser-limits-cutoff.png';
 
@@ -14,14 +13,13 @@ const slide = ({ stepIndex }) => {
         <div>
           <Step index={1}>
             <p>
-              <QuestionLabel>Problem</QuestionLabel>:
               DOM element size limits (eg Chrome 33.5M px, IE 1.5M px)
             </p>
           </Step>
           <ul>
-            <Step index={2}><li>Browser won't render items past this point</li></Step>
-            <Step index={3}><li>You can't scroll past it either</li></Step>
-            <Step index={4}><li>Layout gets wonky as you approach the threshold</li></Step>
+            <Step index={2}><li>Browser won't render past</li></Step>
+            <Step index={3}><li>Can't scroll past</li></Step>
+            <Step index={4}><li>Layout gets wonky</li></Step>
           </ul>
           <Step index={5}>
             <img
@@ -34,16 +32,11 @@ const slide = ({ stepIndex }) => {
         </div>
       </Step>
 
-      <Step index={6} maxIndex={11}>
+      <Step index={6} maxIndex={9}>
         <div>
-          <h2>So how can we beat this?</h2>
-          <Step index={7}><p><AnswerLabel>Solution</AnswerLabel>: Compress things.</p></Step>
-          <ul>
-            <Step index={8}><li>Scale/compress positions of hidden rows</li></Step>
-            <Step index={9}><li>Render visible rows normally</li></Step>
-          </ul>
-          <Step index={10}>
-            <ScaledList scaled={stepIndex > 10} />
+          <Step index={7}><p>Solution: compression</p></Step>
+          <Step index={8}>
+            <ScaledList scaled={stepIndex > 8} />
           </Step>
         </div>
       </Step>

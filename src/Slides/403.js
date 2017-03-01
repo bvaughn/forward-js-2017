@@ -2,7 +2,6 @@ import React from 'react';
 import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
 import styled from 'styled-components';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import image from '../../public/cache-all-the-things.png';
 
 const Image = styled.img`
@@ -13,46 +12,43 @@ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <Step index={1}>
-      <p>
-        <AnswerLabel>Answer</AnswerLabel>: No! Cache all measurements!
-      </p>
-    </Step>
+    <Step index={1} maxIndex={3}>
+      <div>
+        <ul>
+          <Step index={1}><li>Measurements?</li></Step>
+          <Step index={2}><li>Cells?</li></Step>
+        </ul>
 
-    <div className='Spacer' />
-
-    <Step index={2}>
-      <p>
-        <QuestionLabel>Question</QuestionLabel>: Can we cache more than this? <Step index={3}><span>Can we cache the rows themselves?</span></Step>
-      </p>
+        <Step index={3}>
+          <Image
+            height={57}
+            role='presentation'
+            src={image}
+            width={92}
+          />
+        </Step>
+      </div>
     </Step>
 
     <Step index={4}>
-      <Image
-        height={57}
-        role='presentation'
-        src={image}
-        width={92}
-      />
-    </Step>
+      <div>
+        <p>
+          Stateful views are tricky.
+        </p>
 
-    <Step index={5}>
-      <p>
-        <AnswerLabel>Answer</AnswerLabel>: Yes (but stateful views are tricky)
-      </p>
+        <ul>
+          <Step index={5}>
+            <li>Cache rendered rows while scrolling</li>
+          </Step>
+          <Step index={6}>
+            <li>Clear cache when scrolling stops</li>
+          </Step>
+        </ul>
+      </div>
     </Step>
-
-    <ul>
-      <Step index={6}>
-        <li>Cache rendered rows while scrolling</li>
-      </Step>
-      <Step index={7}>
-        <li>Clear cache when scrolling stops</li>
-      </Step>
-    </ul>
   </ContentSlide>
 );
 
-slide.title = 'Do we have to measure things more than once?';
+slide.title = 'What can be cached?';
 
 export default slide;

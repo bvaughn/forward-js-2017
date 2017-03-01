@@ -41,13 +41,13 @@ const slide = () => (
         <p>Why does windowing cause this?</p>
         <ul>
           <Step index={5}>
-            <li>Browsers manage scrolling in a separate thread</li>
+            <li>Separate thread</li>
           </Step>
           <Step index={6}>
-            <li>JavaScript is periodically updated of new scroll positions</li>
+            <li>JavaScript updated periodically</li>
           </Step>
           <Step index={7}>
-            <li>Sometimes JS doesn't respond fast enough (eg 16ms frame budget)</li>
+            <li>Sometimes JS isn't fast enough (16ms frame budget)</li>
           </Step>
         </ul>
         <Step index={8}><p>So what can we do about it?</p></Step>
@@ -58,7 +58,7 @@ const slide = () => (
       <div>
         <Step index={9} exact>
           <div>
-            <p><strong className='AnswerLabel'>Solution</strong>: Shift rows in the direction being scrolled</p>
+            <p>Shift rows in the direction being scrolled</p>
             <AnimatedList direction={1} />
           </div>
         </Step>

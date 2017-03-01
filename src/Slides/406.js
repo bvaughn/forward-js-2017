@@ -4,7 +4,6 @@ import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
 import { List } from 'react-virtualized';
 import styled from 'styled-components';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import Note from '../Components/Note';
 import image from '../../public/profile-picture.jpg';
 
@@ -58,27 +57,26 @@ export default class Slide extends Component {
       <ContentSlide>
         <h1>{Slide.title}</h1>
 
-        <Step index={0} maxIndex={3}>
+        <Step index={0} maxIndex={2}>
           <div>
-            <Step index={1}><p><QuestionLabel>Question</QuestionLabel>: What if a row contains a lot of content?</p></Step>
             <ul>
-              <Step index={2}><li>Complex <code>&lt;canvas&gt;</code> or <code>&lt;svg&gt;</code> (heavy layout)</li></Step>
-              <Step index={3}><li>Images (trigger network requests)</li></Step>
+              <Step index={1}><li><code>&lt;canvas&gt;</code> or <code>&lt;svg&gt;</code></li></Step>
+              <Step index={2}><li>Images (trigger network requests)</li></Step>
             </ul>
           </div>
         </Step>
 
-        <Step index={4} maxIndex={5}>
+        <Step index={3} maxIndex={4}>
           <div>
-            <p><AnswerLabel>Solution</AnswerLabel>: Render less while scrolling.</p>
+            <p>Render less while scrolling.</p>
 
-            <Step index={5}>
+            <Step index={4}>
               <Code value={source} />
             </Step>
           </div>
         </Step>
 
-        <Step index={6}>
+        <Step index={5}>
           <div>
             <List
               className='List'

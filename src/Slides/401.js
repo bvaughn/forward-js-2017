@@ -7,6 +7,13 @@ import dropDownImage from '../../public/non-uniform-heights-drop-down.png';
 const sourceRowHeightGetter = require('raw!../../examples/dynamic-row-height-getter.js');
 const sourceCellMeasurer = require('raw!../../examples/dynamic-cell-measurer.js');
 
+const CELL_MEASURER_LINES = [
+  [],
+  [[0,1], [3,10], [12,27]],
+  [[0,3], [11,11], [13,21], [23,27]],
+  [[1,4], [6,19], [22,27]]
+]
+
 const slide = ({ stepIndex }) => (
   <ContentSlide>
     <h1>{slide.title}</h1>
@@ -37,34 +44,26 @@ const slide = ({ stepIndex }) => (
       </div>
     </Step>
 
-    <Step index={7} maxIndex={10}>
+    <Step index={7} maxIndex={9}>
       <div>
-        <p>If size can be inferred from the data...</p>
+        <p>If size can be inferred- use a function property!</p>
 
         <Step index={8}>
-          <p><strong className='AnswerLabel'>Solution</strong>: Use a function property!</p>
-        </Step>
-
-        <Step index={9}>
           <Code
-            dimLines={stepIndex === 9 ? [[3,7], [9,12]] : []}
+            dimLines={stepIndex === 8 ? [] : [[3,7], [9,12]]}
             value={sourceRowHeightGetter}
           />
         </Step>
       </div>
     </Step>
 
-    <Step index={11} maxIndex={14}>
+    <Step index={10} maxIndex={14}>
       <div>
-        <p>If size must be measured by the browser...</p>
+        <p>If size must be measured- use <code>CellMeasurer</code></p>
 
-        <Step index={12}>
-          <p><strong className='AnswerLabel'>Solution</strong>: Use a HOC (<code>CellMeasurer</code>)</p>
-        </Step>
-
-        <Step index={13}>
+        <Step index={11}>
           <Code
-            dimLines={stepIndex > 13 ? [[1,3], [11,11], [13,19], [22,27]] : []}
+            dimLines={CELL_MEASURER_LINES[stepIndex - 11]}
             value={sourceCellMeasurer}
           />
         </Step>

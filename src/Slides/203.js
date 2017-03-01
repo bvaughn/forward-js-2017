@@ -40,11 +40,7 @@ const slide = () => (
       </Step>
       <Step index={6}>
         <li>
-          And more:
-          <ul>
-            <li>News feeds like Facebook and Twitter</li>
-            <li>Chat applications like Slack and Messenger</li>
-          </ul>
+          And more: News feeds, chat applications
         </li>
       </Step>
     </ul>
