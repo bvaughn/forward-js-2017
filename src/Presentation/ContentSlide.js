@@ -15,13 +15,4 @@ export default styled.div`
     align-items: center;
     color: #444;
   }
-  h1::before {
-    display: inline-block;
-    content: ' ';
-    background-image: url(/header-prefix.png);
-    background-size: 26px 58px;
-    height: 58px;
-    width: 26px;
-    margin-right: 1rem;
-  }
 `
