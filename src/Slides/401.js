@@ -23,7 +23,7 @@ const slide = ({ stepIndex }) => (
         <p>This introduces a couple of challenges:</p>
         <ul>
           <Step index={2}><li>Total size calculation</li></Step>
-          <Step index={3}><li>Performance</li></Step>
+          <Step index={3}><li>Initial performance</li></Step>
         </ul>
       </div>
     </Step>
