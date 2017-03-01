@@ -3,6 +3,9 @@ import { DropDownNav, Presentation, Slide } from 'react-presents';
 import generateRandomList from './Utils/generateRandomList';
 import ForwardTheme from './ForwardTheme';
 
+// Import for CSS refernce (even though we don't use)
+require('../public/header-prefix.png');
+
 // Load all slides in the Slides folder
 const slides = require.context('./Slides/', false, /\.js$/)
   .keys()
