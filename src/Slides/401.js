@@ -28,46 +28,36 @@ const slide = ({ stepIndex }) => (
       </div>
     </Step>
 
-    <Step index={4} maxIndex={6}>
+    <Step index={4} maxIndex={5}>
       <div>
-        <p>Two basic cases:</p>
-        <ul>
-          <Step index={5}><li>Size can be inferred from the data (eg drop-down rows &amp; headers)</li></Step>
-          <Step index={6}><li>Size must be measured by the browser (eg chat messages)</li></Step>
-        </ul>
-        <Step index={5} exact>
+        <p>First case: Size can be inferred from data</p>
+        <Step index={5}>
           <img src={dropDownImage} role='presentation' width={250} />
         </Step>
-        <Step index={6} exact>
+      </div>
+    </Step>
+
+    <Step index={6} maxIndex={7}>
+      <Code
+        dimLines={stepIndex === 6 ? [] : [[3,7], [9,12]]}
+        value={sourceRowHeightGetter}
+      />
+    </Step>
+
+    <Step index={8} maxIndex={9}>
+      <div>
+        <p>Second case: Must be measured by browser</p>
+        <Step index={9}>
           <img src={chatImage} role='presentation' />
         </Step>
       </div>
     </Step>
 
-    <Step index={7} maxIndex={9}>
-      <div>
-        <p>If size can be inferred- use a function property!</p>
-
-        <Step index={8}>
-          <Code
-            dimLines={stepIndex === 8 ? [] : [[3,7], [9,12]]}
-            value={sourceRowHeightGetter}
-          />
-        </Step>
-      </div>
-    </Step>
-
-    <Step index={10} maxIndex={14}>
-      <div>
-        <p>If size must be measured- use <code>CellMeasurer</code></p>
-
-        <Step index={11}>
-          <Code
-            dimLines={CELL_MEASURER_LINES[stepIndex - 11]}
-            value={sourceCellMeasurer}
-          />
-        </Step>
-      </div>
+    <Step index={10} maxIndex={13}>
+      <Code
+        dimLines={CELL_MEASURER_LINES[stepIndex - 10]}
+        value={sourceCellMeasurer}
+      />
     </Step>
   </ContentSlide>
 );

@@ -13,7 +13,7 @@ const slide = ({ stepIndex }) => (
       <div>
         <ul>
           <Step index={1}><li>All components extend <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a></li></Step>
-          <Step index={2}><li>No components have access to the underlying array/collection</li></Step>
+          <Step index={2}><li>No access to array/collection</li></Step>
         </ul>
         <Step index={3}>
           <div>
