@@ -1,8 +1,7 @@
 // Pseudo-code
 class WithUser extends Component {
   componentDidMount () {
-    // Fetch user data from Api, localStorage, whatever
-    // Then call setState({ user })
+    // Load data...
   }
 
   render () {

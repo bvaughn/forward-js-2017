@@ -19,7 +19,7 @@ const slide = () => (
     <ul>
       <Step index={0}>
         <li>
-          <FacebookIcon className='fa fa-facebook-square' /> Facebook, React
+          <FacebookIcon className='fa fa-facebook-square' /> Facebook + React
         </li>
       </Step>
       <Step index={1}>

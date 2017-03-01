@@ -2,14 +2,14 @@ import React from 'react';
 import { Code, Step } from 'react-presents';
 import styled from 'styled-components';
 import ContentSlide from '../Presentation/ContentSlide';
-import Note from '../Components/Note';
 import ScuChart from '../Components/ScuChart';
 
 const Spacer = styled.div`
   margin-top: 0.5rem;
 `
 
-const source = require('raw!../../examples/pure-component.js')
+const sourceA = require('raw!../../examples/pure-component.js');
+const sourceB = require('raw!../../examples/shallow-compare.js');
 
 const slide = ({ stepIndex }) => (
   <ContentSlide>
@@ -22,25 +22,32 @@ const slide = ({ stepIndex }) => (
 
     <Step index={3} maxIndex={4}><div><Spacer/> Use <code>shouldComponentUpdate</code></div></Step>
 
-    <Step index={5} maxIndex={9}>
+    <Step index={5} maxIndex={8}>
       <div>
         <p>
-          <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a> helps!
+          React 15.3+ use <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a>
         </p>
         <ul>
           <Step index={6}><li>Compares current <code>props</code> and <code>state</code> to next</li></Step>
           <Step index={7}><li>Only render when changes</li></Step>
         </ul>
         <Step index={8}>
-          <Code value={source} />
-        </Step>
-        <Step index={9}>
-          <Note>
-            React &lt; 15.3 use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a>.
-          </Note>
+          <Code value={sourceA} />
         </Step>
       </div>
     </Step>
+
+    <Step index={9}>
+      <div>
+        <p>
+          React &lt; 15.3 use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a>
+        </p>
+        <Step index={10}>
+          <Code value={sourceB} />
+        </Step>
+      </div>
+    </Step>
+
   </ContentSlide>
 );
 

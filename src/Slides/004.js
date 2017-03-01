@@ -40,6 +40,6 @@ const slide = () => (
   </ContentSlide>
 );
 
-slide.title = 'Sources of slowness in React apps';
+slide.title = 'What can slow a React app down?';
 
 export default slide;

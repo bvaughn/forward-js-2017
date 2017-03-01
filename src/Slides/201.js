@@ -45,7 +45,7 @@ const slide = () => (
 
     <Step index={3} maxIndex={6}>
       <div>
-        <p>"Occlusion Culling" for video games</p>
+        <p>"Occlusion culling" for video games</p>
 
         <Step index={3} exact>
           <Spacer>
@@ -69,7 +69,7 @@ const slide = () => (
 
     <Step index={7} maxIndex={10}>
       <div>
-        <p>"windowing" for web and mobile</p>
+        <p>"Windowing" for web and mobile</p>
 
         <ul>
           <Step index={8}><li>Given a small list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>

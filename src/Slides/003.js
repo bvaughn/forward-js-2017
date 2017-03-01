@@ -17,7 +17,7 @@ const slide = () => (
     <ul>
       <Step index={1}><li>Older hardware</li></Step>
       <Step index={2}><li>Load times</li></Step>
-      <Step index={3}><li>Scrolling important for mobile</li></Step>
+      <Step index={3}><li>Scrolling UX for mobile</li></Step>
       <Step index={4}><li>Battery life</li></Step>
     </ul>
   </ContentSlide>

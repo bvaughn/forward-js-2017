@@ -45,7 +45,7 @@ const slide = () => (
     </Step>
 
     <Step index={6}>
-      <h3>Will the data grow?</h3>
+      <h3>Key question: Will the data grow?</h3>
     </Step>
 
     <ImageContainer>

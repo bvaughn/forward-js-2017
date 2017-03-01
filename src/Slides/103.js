@@ -24,8 +24,8 @@ const slide = ({ stepIndex }) => (
           </p>
 
           <ul>
-            <Step index={2} exact><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
-            <Step index={3} exact><li>🙂 <code>user</code> (object)</li></Step>
+            <Step index={2}><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
+            <Step index={3}><li>🙂 <code>user</code> (object)</li></Step>
             <Step index={4}><li>😁 <code>name</code> (string), <code>email</code> (string)</li></Step>
             <Step index={5}><li>Simplifies testing!</li></Step>
           </ul>

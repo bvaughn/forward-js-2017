@@ -1,8 +1,7 @@
 // Pseudo-code
 class WithLocalization extends Component {
   componentDidMount () {
-    // Fetch localization data from Api, localStorage, whatever
-    // Then call setState({ localization })
+    // Load data...
   }
 
   render () {

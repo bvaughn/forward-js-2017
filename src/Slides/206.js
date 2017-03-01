@@ -18,18 +18,27 @@ const slide = () => (
       <div>
         <h2>Rendering a list with React</h2>
         <Code
-          dimLines={[[0,1], [9,17], [19,21]]}
+          dimLines={[[0,17], [19,21]]}
           value={sourceNonVirtualized}
         />
       </div>
     </Step>
     <Step index={2} exact>
       <div>
+        <h2>Rendering a list with React</h2>
+        <Code
+          dimLines={[[0,1], [9,21]]}
+          value={sourceNonVirtualized}
+        />
+      </div>
+    </Step>
+    <Step index={3} exact>
+      <div>
         <h2>Rendering a list with react-virtualized</h2>
         <Code value={sourceVirtualized} />
       </div>
     </Step>
-    <Step index={3} exact>
+    <Step index={4} exact>
       <div>
         <h2>Rendering a list with react-virtualized</h2>
         <Code
@@ -38,11 +47,11 @@ const slide = () => (
         />
       </div>
     </Step>
-    <Step index={4} exact>
+    <Step index={5} exact>
       <div>
         <h2>Rendering a list with react-virtualized</h2>
         <Code
-          dimLines={[[0,1], [11,19], [21,23]]}
+          dimLines={[[0,1], [11,23]]}
           value={sourceVirtualized}
         />
       </div>
