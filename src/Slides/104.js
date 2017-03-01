@@ -31,7 +31,7 @@ const slide = ({ stepIndex }) => (
     </Step>
 
     <Step index={4} exact>
-      <p>Let's say we have components that require user information to render...</p>
+      <p>Let's say we have a session...</p>
     </Step>
 
     <Step index={5} exact>
