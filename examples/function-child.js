@@ -5,5 +5,5 @@
 
 // Render callback
 <div>
-  (name) => <span>{name}</span>
+  {(name) => <span>{name}</span>}
 </div>
