@@ -1,10 +1,6 @@
 import React from 'react';
-import { Code, Step } from 'react-presents';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import Note from '../Components/Note';
-import ScuChart from '../Components/ScuChart';
-
-const source = require('raw!../../examples/pure-component.js')
 
 const slide = ({ stepIndex }) => (
   <ContentSlide>

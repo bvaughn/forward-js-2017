@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { AnswerLabel, QuestionLabel } from '../Components/Labels';
 import DemoCollection from '../Components/DemoCollection';
 
 const source = require('raw!../../examples/collection.js');
