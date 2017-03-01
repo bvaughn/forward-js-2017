@@ -9,6 +9,9 @@ const HeartIcon = styled.i`
 const FacebookIcon = styled.i`
   color: #3b5998 !important;
 `;
+const GithubIcon = styled.i`
+  color: #222 !important;
+`;
 
 const slide = () => (
   <ContentSlide>
@@ -16,22 +19,22 @@ const slide = () => (
     <ul>
       <Step index={1}>
         <li>
-          Front-end software engineer
+          Front-end engineer
         </li>
       </Step>
       <Step index={2}>
         <li>
-          <FacebookIcon className='fa fa-facebook-square' /> Facebook (React)
+          <FacebookIcon className='fa fa-facebook-square' /> Facebook + React
         </li>
       </Step>
       <Step index={3}>
         <li>
-          <HeartIcon className='fa fa-heart' /> open source (<a href="https://github.com/bvaughn/">github.com/bvaughn</a>)
+          <GithubIcon className='fa fa-github' /> <a href="https://github.com/bvaughn/">github.com/bvaughn</a>
         </li>
       </Step>
       <Step index={4}>
         <li>
-          Performance, search, and app architecture
+          <HeartIcon className='fa fa-heart' /> performance, search, and app architecture
         </li>
       </Step>
     </ul>
