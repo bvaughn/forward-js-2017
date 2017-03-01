@@ -1,61 +1,57 @@
-import React, { PropTypes } from 'react';
-import { Step } from 'react-presents';
+import React from 'react';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import styled from 'styled-components';
-import HowDoesWindowingWork from '../Components/HowDoesWindowingWork';
+import Note from '../Components/Note';
+import ScuChart from '../Components/ScuChart';
 
-const HiddenLi = styled.li`
-  opacity: 0;
-`;
+const source = require('raw!../../examples/pure-component.js')
 
-function MaybeLI ({ children, index, stepIndex }) {
-  return stepIndex >= index
-    ? (
-      <li>{children}</li>
-    ) : (
-      <HiddenLi>{children}</HiddenLi>
-    );
-}
+const slide = ({ stepIndex }) => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
 
-const title = 'How does windowing work?';
+    <Step index={1} maxIndex={3}>
+      <div>
+        <p>React re-renders nested elements when state changes*.</p>
+        <Step index={1} exact><ScuChart step={0} /></Step>
+        <Step index={2} exact><ScuChart step={1} /></Step>
+        <Step index={3}><ScuChart step={2} /></Step>
+      </div>
+    </Step>
 
-const slide = ({ stepIndex }, { slide }) => {
-  slide.setNumSteps(6);
+    <Step index={4} maxIndex={7}>
+      <div>
+        <p><strong className='AnswerLabel'>Solution</strong>: Use <code>shouldComponentUpdate</code></p>
+        <ul>
+          <Step index={5}><li>Let React know when it's safe to skip rendering</li></Step>
+          <Step index={6}><li>Children are skipped as well</li></Step>
+        </ul>
+        <Step index={7}><ScuChart step={3} /></Step>
+      </div>
+    </Step>
 
-  return (
-    <ContentSlide>
-      <h1>{title}</h1>
+    <Step index={8} maxIndex={12}>
+      <div>
+        <p>
+          <a href='https://facebook.github.io/react/docs/react-api.html#react.purecomponent'><code>PureComponent</code></a> makes this easy.
+        </p>
+        <ul>
+          <Step index={9}><li>Compares current vs next <code>props</code> and <code>state</code></li></Step>
+          <Step index={10}><li>Only re-renders if something has changed</li></Step>
+        </ul>
+        <Step index={11}>
+          <Code value={source} />
+        </Step>
+        <Step index={12}>
+          <Note>
+            For React 15.2 and earlier use <a href='https://facebook.github.io/react/docs/shallow-compare.html'><code>shallowCompare</code></a>.
+          </Note>
+        </Step>
+      </div>
+    </Step>
+  </ContentSlide>
+);
 
-      <ul>
-        <MaybeLI index={1} stepIndex={stepIndex}>
-          <div>
-            DOM element for presenting data (eg <code>&lt;ul&gt;</code>, 150px tall)
-          </div>
-        </MaybeLI>
-        <MaybeLI index={2} stepIndex={stepIndex}>
-          <div>
-            Set of items (eg 10 items, each 50px tall)
-          </div>
-        </MaybeLI>
-        <MaybeLI index={3} stepIndex={stepIndex}>
-          <div>
-            Big DOM element for scrolling (eg 500px tall)
-          </div>
-        </MaybeLI>
-        <MaybeLI index={4} stepIndex={stepIndex}>
-          <div>
-            Absolutely positioned rendered items <Step index={5}><span>(change based on scroll offset)</span></Step>
-          </div>
-        </MaybeLI>
-      </ul>
-      <HowDoesWindowingWork index={stepIndex} />
-    </ContentSlide>
-  );
-}
-
-slide.contextTypes = {
-  slide: PropTypes.any
-};
-slide.title = title;
+slide.title = 'Avoid unnecessary renders';
 
 export default slide;

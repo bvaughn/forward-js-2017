@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'Function children (aka render callbacks)'
+slide.title = 'What about too many DOM elements, garbage collection, etc?'
 
 export default slide;

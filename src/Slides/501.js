@@ -1,65 +1,56 @@
-import React, { Component } from 'react';
-import { Step } from 'react-presents';
+import React, { Component, PropTypes } from 'react';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import { Radio, RadioGroup } from 'react-radio-group';
-import ExampleList from '../Components/ExampleList';
+import { AnswerLabel, QuestionLabel } from '../Components/Labels';
+import Note from '../Components/Note';
+import DragAndDropList from '../Components/DragAndDropList';
+
+const source = require('raw!../../examples/drag-and-drop-key-points.js');
+
+const DIM_LINES = [
+  [[1,3], [6,27]],
+  [[0,9], [13,18], [26,27]],
+  [[0,20], [24,27]]
+]
 
 export default class Slide extends Component {
-  static title = 'Scrolling to a row via props';
+  static contextTypes = {
+    list: PropTypes.array
+  };
 
-  constructor (props, context) {
-    super(props, context);
+  static propTypes = {
+    stepIndex: PropTypes.number.isRequired
+  };
 
-    this.state = {
-      scrollToAlignment: 'auto',
-      scrollToIndex: 0
-    };
-  }
+  static title = 'Drag-and-drop rows';
 
   render () {
-    const { scrollToAlignment, scrollToIndex } = this.state;
+    const { list } = this.context;
+    const { stepIndex } = this.props;
 
     return (
       <ContentSlide>
         <h1>{Slide.title}</h1>
 
-        <p>Controlled by 2 simple properties:</p>
+        <Step index={0} maxIndex={1}>
+          <div>
+            <p>
+              Use <a href='https://github.com/clauderic/react-sortable-hoc'>react-sortable-hoc</a> with react-virtualized for drag-and-drop.
+            </p>
 
-        <ul>
-          <Step index={1}>
-            <li>
-              <code>scrollToAlignment</code> <RadioGroup
-                Component='span'
-                name='scrollToAlignment'
-                onChange={(scrollToAlignment) => this.setState({ scrollToAlignment })}
-                selectedValue={scrollToAlignment}
-              >
-                <Radio value='auto' /> "auto" (default)
-                <Radio value='center' /> "center"
-                <Radio value='end' /> "end"
-                <Radio value='start' /> "start"
-              </RadioGroup>
-            </li>
-          </Step>
+            <Step index={1}>
+              <div>
+                <DragAndDropList list={list} />
+                <Note>Click and drag rows above</Note>
+              </div>
+            </Step>
+          </div>
+        </Step>
 
-          <Step index={2}>
-            <li>
-              <code>scrollToIndex</code> <input
-                onChange={() => this.setState({
-                  scrollToIndex: parseInt(this._input.value, 10)
-                })}
-                ref={(ref) => this._input = ref}
-                type='number'
-                value={scrollToIndex}
-              />
-            </li>
-          </Step>
-        </ul>
-
-        <Step index={3}>
-          <ExampleList
-            scrollToAlignment={scrollToAlignment}
-            scrollToIndex={scrollToIndex}
+        <Step index={2} maxIndex={5}>
+          <Code
+            dimLines={DIM_LINES[stepIndex - 2]}
+            value={source}
           />
         </Step>
       </ContentSlide>

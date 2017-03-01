@@ -1,71 +1,43 @@
 import React from 'react';
-import { Step } from 'react-presents';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import styled from 'styled-components';
-import calendarGif from '../../public/how-is-it-used-calendar.gif';
-import dropDownGif from '../../public/how-is-it-used-dropdown.gif';
-import tableGif from '../../public/how-is-it-used-table.gif';
-import treeGif from '../../public/how-is-it-used-tree.gif';
+import Note from '../Components/Note';
+import ScuChart from '../Components/ScuChart';
 
-const ImageContainer = styled.i`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+const source = require('raw!../../examples/pure-component.js')
 
-const Image = styled.img`
-  margin-top: 1rem;
-  border: 1px solid #ddd;
-`
-
-const slide = () => (
+const slide = ({ stepIndex }) => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
     <ul>
       <Step index={1}>
-        <li>Tables, lists, spreadsheets, & charts (<a href='https://github.com/bvaughn/react-virtualized'>react-virtualized</a>)</li>
-      </Step>
-      <Step index={2}>
-        <li>Drop-down menus (<a href='https://github.com/bvaughn/react-virtualized-select'>react-virtualized-select</a>)</li>
-      </Step>
-      <Step index={3}>
-        <li>Calendar & date-pickers (<a href='https://github.com/clauderic/react-infinite-calendar'>react-infinite-calendar</a>)</li>
-      </Step>
-      <Step index={4}>
-        <li>Tree views (<a href='https://github.com/fritz-c/react-sortable-tree'>react-sortable-tree</a>)</li>
-      </Step>
-      <Step index={5}>
-        <li>Image carousels</li>
+        <li>
+          eg <code>UserBadge</code>
+
+          <ul>
+            <Step index={2} exact><li>🙁 <code>users</code> (array), <code>index</code> (number)</li></Step>
+            <Step index={3} exact><li>🙂 <code>user</code> (object)</li></Step>
+            <Step index={4}><li>😁 <code>name</code> (string), <code>email</code> (string)</li></Step>
+            <Step index={5}><li>This can also simplify testing!</li></Step>
+          </ul>
+        </li>
       </Step>
       <Step index={6}>
         <li>
-          And more:
+          Consider <a href='https://facebook.github.io/immutable-js/'>Immutable</a> data for props
+
           <ul>
-            <li>News feeds like Facebook and Twitter</li>
-            <li>Chat applications like Slack and Messenger</li>
+            <Step index={7}><li>Mutation creates new instance</li></Step>
+            <Step index={8}><li>Slower than native objects but generally not a bottleneck</li></Step>
+            <Step index={9}><li>Faster, simpler change detection</li></Step>
           </ul>
         </li>
       </Step>
     </ul>
-
-    <ImageContainer>
-      <Step index={1} exact>
-        <Image role='presentation' src={tableGif} width={350} />
-      </Step>
-      <Step index={2} exact>
-        <Image role='presentation' src={dropDownGif} width={200} />
-      </Step>
-      <Step index={3} exact>
-        <Image role='presentation' src={calendarGif} width={200} />
-      </Step>
-      <Step index={4} exact>
-        <Image role='presentation' src={treeGif} width={350} />
-      </Step>
-    </ImageContainer>
   </ContentSlide>
 );
 
-slide.title = 'What can windowing be used for?';
+slide.title = 'Choose props carefully';
 
 export default slide;

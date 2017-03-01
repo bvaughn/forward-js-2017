@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'What about all of the elements, painting, etc?'
+slide.title = 'General React tips'
 
 export default slide;

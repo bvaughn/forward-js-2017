@@ -1,70 +1,44 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
 import { AnswerLabel, QuestionLabel } from '../Components/Labels';
-import Note from '../Components/Note';
-import DragAndDropList from '../Components/DragAndDropList';
+import ResizableRowsList from '../Components/ResizableRowsList';
 
-const source = require('raw!../../examples/drag-and-drop-key-points.js');
+const source = require('raw!../../examples/resizable-cells-key-points.js');
 
 const DIM_LINES = [
-  [[1,3], [6,27]],
-  [[0,9], [13,18], [26,27]],
-  [[0,20], [24,27]]
+  [[1,10], [17,29]]
 ]
 
-export default class Slide extends Component {
-  static contextTypes = {
-    list: PropTypes.array
-  };
+const slide = ({ stepIndex }, { list }) => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
 
-  static propTypes = {
-    stepIndex: PropTypes.number.isRequired
-  };
+    <Step index={0} maxIndex={1}>
+      <div>
+        <p>
+          Use <a href='https://github.com/mzabriskie/react-draggable/'>react-draggable</a> with react-virtualized for resizable rows.
+        </p>
 
-  static title = 'Drag-and-drop rows';
-
-  render () {
-    const { list } = this.context;
-    const { stepIndex } = this.props;
-
-    return (
-      <ContentSlide>
-        <h1>{Slide.title}</h1>
-
-        <Step index={0} maxIndex={2}>
-          <div>
-            <Step index={0}>
-              <p>
-                <QuestionLabel>Question</QuestionLabel>:
-                Is it possible to integrate with another library for drag-and-drop?
-              </p>
-            </Step>
-
-            <Step index={1}>
-              <p>
-                <AnswerLabel>Answer</AnswerLabel>:
-                Yes!
-                Use <a href='https://github.com/clauderic/react-sortable-hoc'>react-sortable-hoc</a> with react-virtualized for drag-and-drop.
-              </p>
-            </Step>
-
-            <Step index={2}>
-              <div>
-                <DragAndDropList list={list} />
-                <Note>Click and drag rows above</Note>
-              </div>
-            </Step>
-          </div>
+        <Step exactMatch index={1}>
+          <ResizableRowsList list={list} />
         </Step>
+      </div>
+    </Step>
 
-        <Step index={3} maxIndex={6}>
-          <Code
-            dimLines={DIM_LINES[stepIndex - 3]}
-            value={source}
-          />
-        </Step>
-      </ContentSlide>
-    );
-  }
-}
+    <Step index={2} maxIndex={3}>
+      <Code
+        dimLines={DIM_LINES[stepIndex - 2]}
+        value={source}
+      />
+    </Step>
+  </ContentSlide>
+);
+
+slide.contextTypes = {
+  list: PropTypes.array.isRequired
+};
+
+slide.title = 'Resizable rows';
+
+export default slide;

@@ -12,7 +12,7 @@ function rowRenderer ({ index, isScrolling, key, style }) {
       <Draggable
         axis='y'
         onStop={
-          (event, data) => resizeRow({ deltaY: data.y, index })
+          (event, data) => updateRowSize({ delta: data.y, index })
         }
       />
     </div>

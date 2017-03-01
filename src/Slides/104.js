@@ -1,97 +1,56 @@
-import now from 'performance-now';
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import { Code, Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
-import Note from '../Components/Note';
-import { List, ListRow, RowName, RowNumber, RowStack, RowSummary } from '../Components/StyledListElements';
 
-export default class Slide extends Component {
-  static contextTypes = {
-    list: PropTypes.array
-  };
+const sourceA = require('raw!../../examples/function-children-example-2.js');
+const sourceB = require('raw!../../examples/function-children-example-1.js');
+const sourceC = require('raw!../../examples/function-children-example-3.js');
+const sourceD = require('raw!../../examples/function-child.js');
 
-  static title = 'How much can windowing improve performance?';
+const DIM_LINES = [
+  undefined,
+  [[0,1], [4,10], [13,14]],
+  [[0,3], [6,8], [11,14]],
+  [[0,5], [9,14]]
+]
 
-  constructor (props, context) {
-    super(props, context);
+const slide = ({ stepIndex }) => (
+  <ContentSlide>
+    <h1>{slide.title}</h1>
 
-    this.state = {
-      initializationTime: 0,
-      initialized: false
-    };
-  }
+    <Step index={1} exact>
+      <Code value={sourceD} />
+    </Step>
 
-  componentDidUpdate (prevProps, prevState) {
-    const { initialized } = this.state;
+    <Step index={2} exact>
+      <p>Let's say our app is localized...</p>
+    </Step>
 
-    if (initialized && !prevState.initialized) {
-      window.requestIdleCallback(() => {
-        this.setState({
-          initializationTime: now() - this._initializationStartedAt
-        });
-      });
-    }
-  }
+    <Step index={3} exact>
+      <Code value={sourceA} />
+    </Step>
 
-  componentWillUpdate (nextProps, nextState) {
-    const { initialized } = this.state;
+    <Step index={4} exact>
+      <p>Let's say we have components that require user information to render...</p>
+    </Step>
 
-    if (nextState.initialized && !initialized) {
-      this._initializationStartedAt = now();
-    }
-  }
+    <Step index={5} exact>
+      <Code value={sourceB} />
+    </Step>
 
-  render () {
-    const { list } = this.context;
-    const { initializationTime, initialized } = this.state;
+    <Step index={6} exact>
+      <p>Now we can compose them...</p>
+    </Step>
 
-    const ListComponent = List;
+    <Step index={7} maxIndex={10}>
+      <Code
+        dimLines={DIM_LINES[stepIndex - 7]}
+        value={sourceC}
+      />
+    </Step>
+  </ContentSlide>
+);
 
-    return (
-      <ContentSlide>
-        <h1>{Slide.title}</h1>
-        <h2>Rendering a big list with React</h2>
-        {initialized || (
-          <button onClick={() => this.setState({ initialized: true })}>
-            Create List
-          </button>
-        )}
-        {initialized && (
-          <div>
-            {initializationTime === 0 && (
-              <Note type='warning'>
-                Measuring ...
-              </Note>
-            )}
-            {initializationTime > 0 && (
-              <Note type='warning'>
-                Created list in {Math.round(initializationTime) / 1e3} seconds
-              </Note>
-            )}
+slide.title = 'Render callbacks (aka function children)';
 
-            <ListComponent>
-              {list.map((item, index) => (
-                <ListRow key={index}>
-                  <RowNumber
-                    style={{
-                      backgroundColor: item.color
-                    }}
-                  >
-                    {item.name.substr(0, 1)}
-                  </RowNumber>
-                  <RowStack>
-                    <RowName>{item.name}</RowName>
-                    <RowSummary>This is row {index}</RowSummary>
-                  </RowStack>
-                </ListRow>
-              ))}
-            </ListComponent>
-
-            <Note>
-              Scrolling performance also poor if repaints are triggered (eg <code>border-radius</code>)
-            </Note>
-          </div>
-        )}
-      </ContentSlide>
-    );
-  }
-}
+export default slide;

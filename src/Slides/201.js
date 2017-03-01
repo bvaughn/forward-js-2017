@@ -1,67 +1,93 @@
 import React from 'react';
-import { Code, Step } from 'react-presents';
+import { Step } from 'react-presents';
 import ContentSlide from '../Presentation/ContentSlide';
+import styled from 'styled-components';
+import MarioSvg from '../Components/MarioSvg';
+import kindleImage from '../../public/kindle.jpg';
+import occlusionImage from '../../public/occlusion-culling.jpg';
 
-const sourceA = require('raw!../../examples/function-children-example-2.js');
-const sourceB = require('raw!../../examples/function-children-example-1.js');
-const sourceC = require('raw!../../examples/function-children-example-3.js');
+const OcclusionImage = styled.img`
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+`
 
-const DIM_LINES = [
-  undefined,
-  [[0,1], [4,10], [13,14]],
-  [[0,3], [6,8], [11,14]],
-  [[0,5], [9,14]]
-]
+const KindleImage = styled.img`
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 2.5rem;
+`
 
-const slide = ({ stepIndex }) => (
+const Spacer = styled.div`
+  margin-top: 0.5rem;
+`
+
+const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <Step index={0} maxIndex={3}>
-      <p>Very powerful pattern!</p>
-    </Step>
+    <Step index={0} maxIndex={4}>
+      <div>
+        <ul>
+          <Step index={1}><li>Technique known as "windowing".</li></Step>
+          <Step index={2}><li>Simple to describe but complex to implement.</li></Step>
+          <Step index={3}>
+            <li>
+              Analog example: <strike>books</strike> Kindle
+              <Step index={4}><span>, Star Wars opening credits</span></Step>
+            </li>
+          </Step>
+        </ul>
 
-    <Step index={1} maxIndex={3}>
-      <ul>
-        <li>Allows you to mix-and-match components</li>
-        <Step index={2}>
-          <li>Which enables more modular (maintainable) code</li>
+        <Step index={3} exact>
+          <KindleImage
+            role='presentation'
+            src={kindleImage}
+          />
         </Step>
-        <Step index={3}>
-          <li>An alternative to <code>context</code> (React docs: "use sparingly")</li>
+      </div>
+    </Step>
+
+    <Step index={5} maxIndex={9}>
+      <div>
+        <p>Video games do this ('Occlusion Culling')</p>
+
+        <Step index={5} exact>
+          <Spacer>
+            <MarioSvg />
+          </Spacer>
         </Step>
-      </ul>
+
+        <ul>
+          <Step index={6}><li>Given a perspective of a user/camera</li></Step>
+          <Step index={7}><li>Which objects are in the direction being viewed?</li></Step>
+          <Step index={8}><li>Are any of them obscurred by other items (eg walls)?</li></Step>
+        </ul>
+
+        <Step index={9}>
+          <OcclusionImage
+            role='presentation'
+            src={occlusionImage}
+          />
+        </Step>
+      </div>
     </Step>
 
-    <Step index={4} exact>
-      <p>Let's say our app is localized...</p>
-    </Step>
+    <Step index={10} maxIndex={13}>
+      <div>
+        <p>Websites and mobile apps do this as well ("windowing")</p>
 
-    <Step index={5} exact>
-      <Code value={sourceA} />
-    </Step>
-
-    <Step index={6} exact>
-      <p>Let's say we have components that require user information to render...</p>
-    </Step>
-
-    <Step index={7} exact>
-      <Code value={sourceB} />
-    </Step>
-
-    <Step index={8} exact>
-      <p>Function children allow us to compose these...</p>
-    </Step>
-
-    <Step index={9} maxIndex={12}>
-      <Code
-        dimLines={DIM_LINES[stepIndex - 9]}
-        value={sourceC}
-      />
+        <ul>
+          <Step index={11}><li>Given a small, scrollable list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>
+          <Step index={12}><li>And a huge set of items (eg <code>&lt;li&gt;</code>, <code>UITableViewCell</code>)</li></Step>
+          <Step index={13}><li>Which items are visible?</li></Step>
+        </ul>
+      </div>
     </Step>
   </ContentSlide>
 );
 
-slide.title = 'Function children (aka render callbacks)';
+slide.title = 'Only display visible data'
 
 export default slide;
