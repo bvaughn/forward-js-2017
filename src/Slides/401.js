@@ -22,46 +22,42 @@ const slide = ({ stepIndex }) => (
       <div>
         <p>This introduces a couple of challenges:</p>
         <ul>
-          <Step index={2}><li>Calculating total size becomes more difficult</li></Step>
-          <Step index={3}><li>Measuring all items hurts performance</li></Step>
+          <Step index={2}><li>Total size calculation</li></Step>
+          <Step index={3}><li>Performance</li></Step>
         </ul>
       </div>
     </Step>
 
-    <Step index={4} maxIndex={5}>
+    <Step index={4} exact>
       <div>
-        <p>First case: Size can be inferred from data</p>
-        <Step index={5}>
-          <img src={dropDownImage} role='presentation' width={250} />
-        </Step>
+        <p>eg Size can be inferred from data</p>
+        <img src={dropDownImage} role='presentation' width={250} />
       </div>
     </Step>
 
-    <Step index={6} maxIndex={7}>
+    <Step index={5} maxIndex={6}>
       <Code
-        dimLines={stepIndex === 6 ? [] : [[3,7], [9,12]]}
+        dimLines={stepIndex === 5 ? [] : [[3,7], [9,12]]}
         value={sourceRowHeightGetter}
       />
     </Step>
 
-    <Step index={8} maxIndex={9}>
+    <Step index={7} exact>
       <div>
-        <p>Second case: Must be measured by browser</p>
-        <Step index={9}>
-          <img src={chatImage} role='presentation' />
-        </Step>
+        <p>eg Must be measured by browser</p>
+        <img src={chatImage} role='presentation' />
       </div>
     </Step>
 
-    <Step index={10} maxIndex={13}>
+    <Step index={8} maxIndex={11}>
       <Code
-        dimLines={CELL_MEASURER_LINES[stepIndex - 10]}
+        dimLines={CELL_MEASURER_LINES[stepIndex - 8]}
         value={sourceCellMeasurer}
       />
     </Step>
   </ContentSlide>
 );
 
-slide.title = 'Can we window items with varying heights?';
+slide.title = 'What about variable sized content?';
 
 export default slide;

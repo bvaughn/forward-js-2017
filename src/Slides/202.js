@@ -29,25 +29,26 @@ const slide = ({ stepIndex }, { slide }) => {
       <ul>
         <MaybeLI index={1} stepIndex={stepIndex}>
           <div>
-            DOM element for presenting data (eg <code>&lt;ul&gt;</code>, 150px tall)
+            Small DOM element (eg <code>&lt;ul&gt;</code>)
           </div>
         </MaybeLI>
         <MaybeLI index={2} stepIndex={stepIndex}>
           <div>
-            Set of items (eg 10 items, each 50px tall)
+            Items
           </div>
         </MaybeLI>
         <MaybeLI index={3} stepIndex={stepIndex}>
           <div>
-            Big DOM element for scrolling (eg 500px tall)
+            Big DOM element for scrolling
           </div>
         </MaybeLI>
         <MaybeLI index={4} stepIndex={stepIndex}>
           <div>
-            Absolutely positioned rendered items <Step index={5}><span>(change based on scroll offset)</span></Step>
+            Absolutely positioned visible rows
           </div>
         </MaybeLI>
       </ul>
+      <Step index={5}><span/></Step>
       <HowDoesWindowingWork index={stepIndex} />
     </ContentSlide>
   );

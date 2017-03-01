@@ -17,16 +17,17 @@ const slide = () => (
         <ul>
           <Step index={1}><li>Measurements?</li></Step>
           <Step index={2}><li>Cells?</li></Step>
+          <Step index={3}>
+            <li>
+              <Image
+                height={57}
+                role='presentation'
+                src={image}
+                width={92}
+              />
+            </li>
+          </Step>
         </ul>
-
-        <Step index={3}>
-          <Image
-            height={57}
-            role='presentation'
-            src={image}
-            width={92}
-          />
-        </Step>
       </div>
     </Step>
 
@@ -38,10 +39,10 @@ const slide = () => (
 
         <ul>
           <Step index={5}>
-            <li>Cache rendered rows while scrolling</li>
+            <li>Cache while scrolling</li>
           </Step>
           <Step index={6}>
-            <li>Clear cache when scrolling stops</li>
+            <li>Clear cache after</li>
           </Step>
         </ul>
       </div>

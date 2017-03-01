@@ -19,24 +19,19 @@ import { CollectionSvg, GridSvg, ListSvg, TableSvg } from '../Components/Buildin
         <TableSvg />
       </div>
     </Step>
-    <Step index={3} maxIndex={4}>
+    <Step index={3} exact>
       <div>
-        <p>Windowing isn't just vertical!</p>
-        <Step index={4}>
-          <div>
-            <h2>Grid</h2>
-            <GridSvg />
-          </div>
-        </Step>
+        <h2>Grid</h2>
+        <GridSvg />
       </div>
     </Step>
-    <Step index={5} maxIndex={7}>
+    <Step index={4} maxIndex={6}>
       <div>
         <ul>
           <li>What about data that isn't linear (eg Pinterest layout, Gantt chart)?</li>
-          <Step index={6}><li>Can we even window this type of data?</li></Step>
+          <Step index={5}><li>Can we even window this type of data?</li></Step>
         </ul>
-        <Step index={7}>
+        <Step index={6}>
           <div>
             <h2>Collection</h2>
             <CollectionSvg />

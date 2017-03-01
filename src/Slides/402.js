@@ -12,16 +12,15 @@ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
     <ul>
-      <Step index={1}><li>Yes, especially if it requires rendering.</li></Step>
-      <Step index={2}><li>How can we know the scrollable size if we don't measure?</li></Step>
+      <Step index={1}><li>Yes! but...</li></Step>
     </ul>
     <Spacer />
-    <Step index={3}>
+    <Step index={2}>
       <DeferMeasurements />
     </Step>
   </ContentSlide>
 );
 
-slide.title = 'Isn\'t measuring expensive?';
+slide.title = 'Is measuring expensive?';
 
 export default slide;

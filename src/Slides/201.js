@@ -30,7 +30,7 @@ const slide = () => (
     <Step index={0} maxIndex={2}>
       <div>
         <ul>
-          <Step index={1}><li>Technique known as "windowing".</li></Step>
+          <Step index={1}><li>Known as "windowing".</li></Step>
           <Step index={2}><li>Analog example: <strike>books</strike> Kindle</li></Step>
         </ul>
 
@@ -43,9 +43,9 @@ const slide = () => (
       </div>
     </Step>
 
-    <Step index={3} maxIndex={7}>
+    <Step index={3} maxIndex={6}>
       <div>
-        <p>Video games do this ('Occlusion Culling')</p>
+        <p>"Occlusion Culling" for video games</p>
 
         <Step index={3} exact>
           <Spacer>
@@ -53,29 +53,28 @@ const slide = () => (
           </Spacer>
         </Step>
 
-        <ul>
-          <Step index={4}><li>Given a perspective of a user/camera</li></Step>
-          <Step index={5}><li>Which objects are in the direction being viewed?</li></Step>
-          <Step index={6}><li>Are any of them obscurred by other items (eg walls)?</li></Step>
-        </ul>
-
-        <Step index={7}>
+        <Step index={4}>
           <OcclusionImage
             role='presentation'
             src={occlusionImage}
           />
         </Step>
+
+        <ul>
+          <Step index={5}><li>Given a perspective of a user</li></Step>
+          <Step index={6}><li>Which objects are visible?</li></Step>
+        </ul>
       </div>
     </Step>
 
-    <Step index={8} maxIndex={11}>
+    <Step index={7} maxIndex={10}>
       <div>
-        <p>Websites and mobile apps do this as well ("windowing")</p>
+        <p>"windowing" for web and mobile</p>
 
         <ul>
-          <Step index={9}><li>Given a small, scrollable list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>
-          <Step index={10}><li>And a huge set of items (eg <code>&lt;li&gt;</code>, <code>UITableViewCell</code>)</li></Step>
-          <Step index={11}><li>Which items are visible?</li></Step>
+          <Step index={8}><li>Given a small list (eg <code>&lt;ul&gt;</code>, <code>UITableView</code>)</li></Step>
+          <Step index={9}><li>And large set of items (eg <code>&lt;li&gt;</code>, <code>UITableViewCell</code>)</li></Step>
+          <Step index={10}><li>Which items are visible?</li></Step>
         </ul>
       </div>
     </Step>

@@ -22,28 +22,31 @@ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <ul>
-      <Step index={1}>
-        <li>Tables, lists, spreadsheets, & charts (<a href='https://github.com/bvaughn/react-virtualized'>react-virtualized</a>)</li>
-      </Step>
-      <Step index={2}>
-        <li>Drop-down menus (<a href='https://github.com/bvaughn/react-virtualized-select'>react-virtualized-select</a>)</li>
-      </Step>
-      <Step index={3}>
-        <li>Calendar & date-pickers (<a href='https://github.com/clauderic/react-infinite-calendar'>react-infinite-calendar</a>)</li>
-      </Step>
-      <Step index={4}>
-        <li>Tree views (<a href='https://github.com/fritz-c/react-sortable-tree'>react-sortable-tree</a>)</li>
-      </Step>
-      <Step index={5}>
-        <li>Image carousels</li>
-      </Step>
-      <Step index={6}>
-        <li>
-          And more: News feeds, chat applications
-        </li>
-      </Step>
-    </ul>
+    <Step index={0} maxIndex={5}>
+      <ul>
+        <Step index={1}>
+          <li>Tables, lists, spreadsheets (<a href='https://github.com/bvaughn/react-virtualized'>react-virtualized</a>)</li>
+        </Step>
+        <Step index={2}>
+          <li>Drop-down menus (<a href='https://github.com/bvaughn/react-virtualized-select'>react-virtualized-select</a>)</li>
+        </Step>
+        <Step index={3}>
+          <li>Calendar & date-pickers (<a href='https://github.com/clauderic/react-infinite-calendar'>react-infinite-calendar</a>)</li>
+        </Step>
+        <Step index={4}>
+          <li>Tree views (<a href='https://github.com/fritz-c/react-sortable-tree'>react-sortable-tree</a>)</li>
+        </Step>
+        <Step index={5}>
+          <li>
+            Image carousels, news feeds, chat applications, etc
+          </li>
+        </Step>
+      </ul>
+    </Step>
+
+    <Step index={6}>
+      <h3>Will the data grow?</h3>
+    </Step>
 
     <ImageContainer>
       <Step index={1} exact>

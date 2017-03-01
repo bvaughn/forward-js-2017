@@ -34,7 +34,7 @@ const slide = ({ stepIndex }) => {
 
       <Step index={6} maxIndex={9}>
         <div>
-          <Step index={7}><p>Solution: compression</p></Step>
+          <Step index={7}><p>Compression things</p></Step>
           <Step index={8}>
             <ScaledList scaled={stepIndex > 8} />
           </Step>

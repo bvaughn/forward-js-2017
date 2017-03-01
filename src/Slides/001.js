@@ -17,22 +17,17 @@ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
     <ul>
+      <Step index={0}>
+        <li>
+          <FacebookIcon className='fa fa-facebook-square' /> Facebook, React
+        </li>
+      </Step>
       <Step index={1}>
-        <li>
-          Front-end engineer
-        </li>
-      </Step>
-      <Step index={2}>
-        <li>
-          <FacebookIcon className='fa fa-facebook-square' /> Facebook + React
-        </li>
-      </Step>
-      <Step index={3}>
         <li>
           <GithubIcon className='fa fa-github' /> <a href="https://github.com/bvaughn/">github.com/bvaughn</a>
         </li>
       </Step>
-      <Step index={4}>
+      <Step index={2}>
         <li>
           <HeartIcon className='fa fa-heart' /> performance, search, and app architecture
         </li>

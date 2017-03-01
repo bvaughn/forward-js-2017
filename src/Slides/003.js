@@ -15,17 +15,10 @@ const slide = () => (
       />
     </Step>
     <ul>
-      <Step index={1}><li>Most people have slow/older devices</li></Step>
-      <Step index={2}><li>Slow load times cause users to leave</li></Step>
-      <Step index={3}>
-        <li>
-          <div>
-            Bad framerate hurts scrolling experience.
-            <Step index={4}><span> (Important for mobile UX!)</span></Step>
-          </div>
-        </li>
-      </Step>
-      <Step index={5}><li>Drains battery life (eg mobile, laptops)</li></Step>
+      <Step index={1}><li>Older hardware</li></Step>
+      <Step index={2}><li>Load times</li></Step>
+      <Step index={3}><li>Scrolling important for mobile</li></Step>
+      <Step index={4}><li>Battery life</li></Step>
     </ul>
   </ContentSlide>
 );

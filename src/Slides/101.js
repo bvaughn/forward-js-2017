@@ -7,8 +7,8 @@ const slide = () => (
     <h1>{slide.title}</h1>
 
     <ul>
-      <Step index={1}><li>Smaller and faster without dev-mode warnings</li></Step>
-      <Step index={2}><li>Instructions @ <a href='https://facebook.github.io/react/docs/installation.html#development-and-production-versions'>React installation page</a></li></Step>
+      <Step index={1}><li>Smaller and faster</li></Step>
+      <Step index={2}><li>Instructions on <a href='https://facebook.github.io/react/docs/installation.html#development-and-production-versions'>React installation page</a></li></Step>
     </ul>
   </ContentSlide>
 );

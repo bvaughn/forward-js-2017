@@ -16,10 +16,9 @@ const slide = () => (
   <ContentSlide>
     <h1>{slide.title}</h1>
 
-    <Step index={1} maxIndex={3}>
+    <Step index={1} maxIndex={2}>
       <div>
-        <Step index={1}><p>Will users be able to tell that we're windowing?</p></Step>
-        <Step index={2}>
+        <Step index={1}>
           <Video
             autoPlay
             height={293}
@@ -32,43 +31,36 @@ const slide = () => (
             />
           </Video>
         </Step>
-        <Step index={3}><Note>This concern is unique to windowing.</Note></Step>
+        <Step index={2}><Note>Unique to windowing.</Note></Step>
       </div>
     </Step>
 
-    <Step index={4} maxIndex={8}>
+    <Step index={3} maxIndex={6}>
       <div>
         <p>Why does windowing cause this?</p>
         <ul>
-          <Step index={5}>
+          <Step index={4}>
             <li>Separate thread</li>
           </Step>
-          <Step index={6}>
+          <Step index={5}>
             <li>JavaScript updated periodically</li>
           </Step>
-          <Step index={7}>
+          <Step index={6}>
             <li>Sometimes JS isn't fast enough (16ms frame budget)</li>
           </Step>
         </ul>
-        <Step index={8}><p>So what can we do about it?</p></Step>
       </div>
     </Step>
 
-    <Step index={9} maxIndex={11}>
+    <Step index={7} maxIndex={9}>
       <div>
+        <Step index={7} exact>
+          <AnimatedList direction={1} />
+        </Step>
+        <Step index={8} exact>
+          <AnimatedList direction={-1} />
+        </Step>
         <Step index={9} exact>
-          <div>
-            <p>Shift rows in the direction being scrolled</p>
-            <AnimatedList direction={1} />
-          </div>
-        </Step>
-        <Step index={10} exact>
-          <div>
-            <p>I call this "overscanning" (like with TVs)</p> 
-            <AnimatedList direction={-1} />
-          </div>
-        </Step>
-        <Step index={11} exact>
           <div>
             <ExampleList />
 

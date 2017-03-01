@@ -20,22 +20,21 @@ const slide = () => (
 
     <Step index={1}>
       <ul>
-        <Step index={2}><li>Creating lots of DOM elements</li></Step>
-        <Step index={3}><li>Repaints / reflows</li></Step>
+        <Step index={2}><li>DOM elements and mutations</li></Step>
+        <Step index={3}><li>Repaints and reflows</li></Step>
         <Step index={4}><li>Garbage collection</li></Step>
       </ul>
     </Step>
 
     <Step index={5}>
       <h2>
-        React <Step index={8}><SectionCheck className='fa fa-check' /></Step>
+        React <Step index={7}><SectionCheck className='fa fa-check' /></Step>
       </h2>
     </Step>
     <Step index={5}>
       <ul>
-        <Step index={6}><li>Creating lots of Elements</li></Step>
-        <Step index={7}><li>Unnecessary renders (no DOM changes)</li></Step>
-        <Step index={8}><li>Development build of React 🤡</li></Step>
+        <Step index={6}><li>Unnecessary renders</li></Step>
+        <Step index={7}><li>Development build of React 🤡</li></Step>
       </ul>
     </Step>
   </ContentSlide>

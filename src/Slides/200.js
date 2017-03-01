@@ -7,6 +7,6 @@ const slide = () => (
   </TitleSlide>
 );
 
-slide.title = 'What about too many DOM elements, garbage collection, etc?'
+slide.title = 'What about too many DOM elements, GC, etc?'
 
 export default slide;
